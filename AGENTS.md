@@ -69,3 +69,8 @@ The owner's Phase 2 brief authorizes local removal of organizer subscriptions/mo
 ## Current organizer Phase 3 boundary — November 2, 2026
 
 The owner's Phase 3 master brief authorizes the local four-step creator and live customer-page designer, simplified ticket options, independent content approval without bank readiness, social/profile fixes, portable fictional QA, secure local test credentials and a sanitized private GitHub source backup. It supersedes prior phase-stop and upload prohibitions only for this scope and this private backup. No Hostinger deployment, production/provider/hosted DB access or writes, hosting/DNS/environment change, tunnel, real payments/sales/admission or external messages. Canonical DB and original assets stay unchanged. Google live testing still requires actual credentials. Owner visual acceptance and future release authorization remain separate. See docs/ORGANIZER_PHASE_3_REPORT.md and docs/SETUP_ON_ANOTHER_COMPUTER.md.
+
+
+## Public source sharing and Windows handoff — November 2, 2026
+
+The owner explicitly authorized making `dylanparsa-hue/mixermates` public and sharing Windows local setup instructions. This supersedes the private-only source-backup restriction for this repository. Sanitize source/history and retain exclusion of credentials, databases, environment files, uploads and private QA artifacts. Public source access does not authorize application deployment, production/provider access or writes, hosting/DNS/environment changes, real money/sales/admission or external messages.

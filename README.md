@@ -1,8 +1,8 @@
-# MixerMates — private development source
+# MixerMates — development source
 
-MixerMates uses Next.js, React, TypeScript and Prisma. Current work runs locally with contained fictional SQLite data and disabled real sales. The private GitHub backup does not authorize deployment to Hostinger or any other host.
+MixerMates uses Next.js, React, TypeScript and Prisma. Current work runs locally with contained fictional SQLite data and disabled real sales. The owner authorized public source sharing. This does not authorize deployment to Hostinger or any other host.
 
-Start with [Setup on another computer](docs/SETUP_ON_ANOTHER_COMPUTER.md). It covers frozen dependency installation, new database initialization, fictional account provisioning, localhost startup and regression checks. Use the guarded preparation scripts; do not point a development/test command at the original database or production.
+On Windows, start with [Windows setup](docs/SETUP_WINDOWS.md). For macOS/Linux, use [Setup on another computer](docs/SETUP_ON_ANOTHER_COMPUTER.md). It covers frozen dependency installation, new database initialization, fictional account provisioning, localhost startup and regression checks. Use the guarded preparation scripts; do not point a development/test command at the original database or production.
 
 The current organizer flow is **Event Details → Tickets → Design Event Page → Submit for Approval**. Same-account organizer access is free. The live designer and saved customer page share rendering, and independent administrator review is separate from payment readiness. The fixed 5% fee and existing booking, refund and admission protections remain.
 

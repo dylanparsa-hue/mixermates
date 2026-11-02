@@ -1,5 +1,7 @@
 # MixerMates organizer Phase 3 — local handoff
 
+Sharing update, November 2, 2026: the owner subsequently authorized public source access. See [Windows setup](SETUP_WINDOWS.md). References to the private backup below describe the original handoff.
+
 November 2, 2026. **PARTIAL:** the local creator/designer, review, ticket journey and social changes are implemented and tested. Live Google validation and the additional scheduling/eligibility items below remain open. This is not owner visual acceptance or real-sales approval. No Hostinger deployment occurred.
 
 1. **Event Creator:** Event Details → Tickets → Design Event Page → Submit for Approval. Same customer identity, automatic unique URLs, no organizer subscription or bank prerequisite. Next and submission validate on client/server; incomplete Save Draft remains available. Optional questions, private location/entry details and age settings remain supported.

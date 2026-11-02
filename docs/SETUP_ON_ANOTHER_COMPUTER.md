@@ -1,10 +1,10 @@
 # Run MixerMates locally on another computer
 
-This repository is a private source backup. It does not deploy the website. Do not connect production databases, payment providers, hosting or real customer data.
+This repository is publicly shareable source. Windows users should follow [Windows setup](SETUP_WINDOWS.md) using WSL 2 and Ubuntu. It does not deploy the website. Do not connect production databases, payment providers, hosting or real customer data.
 
 ## Install and prepare
 
-Use Node.js 22.23.3 LTS (Node 24 also passed local checks), pnpm 11 and Python 3.9+. GitHub access is required to clone the private repository.
+Use Node.js 22.23.3 LTS (Node 24 also passed local checks), pnpm 11 and Python 3.9+. No GitHub sign-in is required to clone the public repository.
 
 ```sh
 git clone https://github.com/dylanparsa-hue/mixermates.git
