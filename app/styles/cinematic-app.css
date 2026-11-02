@@ -2014,7 +2014,7 @@ html[data-theme="light"] .night-hero-copy p {
   background: var(--surface, #111314);
   color: var(--foreground, #fff);
   position: relative;
-  z-index: 110;
+  z-index: 95; /* Below modal backdrops so ticket controls remain reachable. */
 }
 .mm-lab-bar label {
   gap: 8px;
