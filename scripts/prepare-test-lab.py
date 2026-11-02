@@ -7,8 +7,8 @@ p.add_argument('--port',type=int,default=3081)
 a=p.parse_args();root=Path(__file__).resolve().parent.parent;dest=a.directory.expanduser().resolve()
 import re
 if dest.name != 'preview' or not re.fullmatch(r'mixermates-(?:correction-\d{8}(?:-phase[23])?|local-[a-zA-Z0-9_-]+)', dest.parent.name) or dest.exists():p.error('Choose a new owned disposable Test Lab directory. Existing workspaces are preserved.')
-subprocess.run([sys.executable,str(root/'scripts/prepare-local-audit.py'),'--directory',str(dest),'--port',str(a.port)],check=True,cwd=root)
-settings=dest/'.env';settings.write_text(settings.read_text()+'MIXERMATES_TEST_LAB="enabled"\nLOCAL_CUSTOMER_TEST_ENABLED="true"\nMIXERMATES_PAYMENT_SIMULATOR="enabled"\n');settings.chmod(0o600)
+subprocess.run([sys.executable,str(root/'scripts/prepare-local-audit.py'),'--directory',str(dest),'--port',str(a.port),'--mode','full_platform'],check=True,cwd=root)
+settings=dest/'.env';settings.write_text(settings.read_text().replace('DEMO_MODE="true"','DEMO_MODE="false"').replace('LOCAL_DEMO_BOOKING_ENABLED="true"','LOCAL_DEMO_BOOKING_ENABLED="false"')+'MIXERMATES_TEST_LAB="enabled"\nLOCAL_CUSTOMER_TEST_ENABLED="true"\nMIXERMATES_PAYMENT_SIMULATOR="enabled"\n');settings.chmod(0o600)
 env={k:v for k,v in os.environ.items() if not k.startswith('DB_')}
 for line in settings.read_text().splitlines():
  k,v=line.split('=',1);env[k]=v.strip('"')

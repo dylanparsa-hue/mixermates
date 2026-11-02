@@ -10,7 +10,7 @@ for(const site of [undefined,"invalid","coming_soon","full_platform"]){
   for(const sales of [undefined,"invalid","disabled","invite_only","approved_events"]){
     test(`safe configuration: site=${site}, sales=${sales}`,()=>{
       const c=getSiteConfig({SITE_MODE:site,TICKET_SALES_MODE:sales});
-      assert.equal(c.siteMode,site === "full_platform" ? "full_platform" : "coming_soon");
+      assert.equal(c.siteMode,"full_platform");
       assert.equal(c.ticketSalesMode,"disabled");
       assert.equal(apiAccess("book","POST",admin,c,false).status,503);
     });
@@ -18,28 +18,15 @@ for(const site of [undefined,"invalid","coming_soon","full_platform"]){
 }
 const coming=getSiteConfig({SITE_MODE:"coming_soon"});
 const full=getSiteConfig({SITE_MODE:"full_platform"});
-for(const user of [null,attendee,{...admin,active:false}]){
-  for(const path of ["/","/explore","/map","/profile","/friends","/tickets","/people/alex","/organizer","/create","/admin","/events/secret"]){
-    test(`coming soon denies ${user?.role || "anonymous"} at ${path}`,()=>assert.equal(pageAccess(path,user,coming),"coming_soon"));
+for(const config of [coming,full,getSiteConfig({})]) {
+  for(const path of ["/","/explore","/map","/profile","/friends","/tickets","/organizer","/create"]) {
+    test(`application opens without a holding screen: ${config.requestedSiteMode} ${path}`,()=>assert.equal(pageAccess(path,null,config),"platform"));
   }
-}
-test("administrator preview depends on active server role, not a verification flag",()=>{
-  assert.equal(pageAccess("/explore",admin,coming),"admin_preview");
-  assert.equal(pageAccess("/explore",{...attendee,verification:"VERIFIED"} as typeof attendee,coming),"coming_soon");
-  assert.equal(pageAccess("/admin",organizer,coming),"coming_soon");
-});
-test("organizers and staff have a narrow preview",()=>{
-  assert.equal(pageAccess("/organizer",organizer,coming),"organizer_preview");
-  assert.equal(pageAccess("/create",organizer,coming),"organizer_preview");
-  assert.equal(pageAccess("/create",staff,coming),"coming_soon");
-  assert.equal(pageAccess("/profile",organizer,coming),"coming_soon");
-  assert.equal(apiAccess("admin","GET",organizer,coming,false).status,403);
-  assert.equal(apiAccess("event","POST",staff,coming,false).status,403);
-});
-for(const path of ["events","events/secret","profile","people","tickets","ticket/id","receipt/id","upload","checkin","organizer","admin"]){
-  test(`anonymous private API ${path} is JSON-denied`,()=>{
-    const method=["upload","checkin"].includes(path)?"POST":"GET";
-    assert.equal(apiAccess(path,method,null,coming,false).status,401);
+  test(`admin role remains protected: ${config.requestedSiteMode}`,()=>{
+    assert.equal(pageAccess("/admin",null,config),"login");
+    assert.equal(pageAccess("/admin",attendee,config),"forbidden");
+    assert.equal(pageAccess("/admin",{...admin,active:false},config),"forbidden");
+    assert.equal(pageAccess("/admin",admin,config),"platform");
   });
 }
 test("untrusted invitation query and client flags cannot open access",()=>{

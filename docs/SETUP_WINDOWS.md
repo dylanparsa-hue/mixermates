@@ -51,6 +51,22 @@ Open **http://localhost:3084/** in Edge or Chrome on Windows. Microsoft document
 
 A fictional customer session opens automatically. Use Create Event for the four-step creator, Workspace for Organizer/Admin views, and Review tools for independent staff identities. Real payments remain disabled. This is a separate fictional database; it does not synchronize the original machine's events or accounts.
 
+## Already have an older copy?
+
+In Ubuntu, run:
+
+```bash
+cd "$HOME/mixermates"
+git pull --ff-only
+pnpm install --frozen-lockfile
+python3 scripts/prepare-test-lab.py --directory "$HOME/mixermates-local-updated/preview" --port 3085
+cd "$HOME/mixermates-local-updated/preview"
+node scripts/run-local.mjs dev
+```
+
+Open **http://localhost:3085/**. Choose another new destination/unused port if these are already in use. A prepared Lab is a separate copy, so pulling the source does not update a previously prepared Lab. The new Lab has its own fictional database; keep the old Lab to preserve its data. The Coming Soon screen has been removed; legacy `SITE_MODE=coming_soon` settings now open the app.
+
+
 ## 4. Stop and reopen later
 
 Press **Ctrl+C** in the server terminal to stop it. To resume, open Ubuntu and run:

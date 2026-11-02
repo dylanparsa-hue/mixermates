@@ -1,4 +1,3 @@
-import { getSiteConfig } from "@/lib/site-config";
 import { ThemeProvider } from "@/components/theme";
 import { themeInitScript } from "@/lib/theme-init";
 import type { Metadata, Viewport } from "next";
@@ -23,12 +22,9 @@ const displayFont = localFont({
   weight: "200 800",
 });
 export function generateMetadata(): Metadata {
-  const coming = getSiteConfig().siteMode === "coming_soon";
   return {
     metadataBase: new URL("https://mixermates.com"),
-    title: coming
-      ? "MixerMates — Coming Soon"
-      : "MixerMates — Find Your Vibe. Find Your People.",
+    title: "MixerMates — Find Your Vibe. Find Your People.",
     description:
       "Discover nightlife, music events and new connections with MixerMates.",
     robots: { index: false, follow: false },
@@ -38,9 +34,7 @@ export function generateMetadata(): Metadata {
       apple: "/branding/processed/mixermates-icon-180.png",
     },
     openGraph: {
-      title: coming
-        ? "MixerMates — Coming Soon"
-        : "MixerMates — Find Your Vibe. Find Your People.",
+      title: "MixerMates — Find Your Vibe. Find Your People.",
       description: "Discover your next night and the people who make it.",
       siteName: "MixerMates",
       url: "https://mixermates.com",

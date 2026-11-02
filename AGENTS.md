@@ -74,3 +74,8 @@ The owner's Phase 3 master brief authorizes the local four-step creator and live
 ## Public source sharing and Windows handoff — November 2, 2026
 
 The owner explicitly authorized making `dylanparsa-hue/mixermates` public and sharing Windows local setup instructions. This supersedes the private-only source-backup restriction for this repository. Sanitize source/history and retain exclusion of credentials, databases, environment files, uploads and private QA artifacts. Public source access does not authorize application deployment, production/provider access or writes, hosting/DNS/environment changes, real money/sales/admission or external messages.
+
+
+## Coming Soon removal — November 2, 2026
+
+The owner explicitly authorized removing the Coming Soon screen/redirects from the source application, opening the ordinary app by default (including older environment settings), updating portable local setup and pushing to the public repository. This supersedes prior preservation requirements for that screen. Real-sales locks, private-event/account authorization, contained fictional QA and protected canonical data/assets remain. This does not authorize deployment or production access.

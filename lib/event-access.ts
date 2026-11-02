@@ -1,6 +1,5 @@
 import { db } from "./db";
 import { isAdmin, type AccessUser } from "./access-policy";
-import { getSiteConfig } from "./site-config";
 import { eligibility } from "./booking-domain";
 import { publiclyListed } from "./public-catalogue";
 export async function canAccessEvent(
@@ -29,21 +28,6 @@ export async function canAccessEvent(
   if (event.status !== "PUBLISHED") return false;
   if (event.access === "PUBLIC" && !(await publiclyListed(event.id)))
     return false;
-  if (getSiteConfig().siteMode === "coming_soon") {
-    // Only the guarded, authenticated local controller can preview fictional public events.
-    // This does not grant private invitations or location access and never runs in production.
-    if (
-      process.env.NODE_ENV !== "development" ||
-      process.env.MIXERMATES_TEST_LAB !== "enabled" ||
-      !(await (await import("./test-lab")).localLabAccess())
-    )
-      return false;
-    const fictional = await db.event.findUnique({
-      where: { id: event.id },
-      select: { testOnly: true },
-    });
-    if (!fictional?.testOnly) return false;
-  }
   if (event.access === "PUBLIC") return true;
   if (!user) return false;
   if (

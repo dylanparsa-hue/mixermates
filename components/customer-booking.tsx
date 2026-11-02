@@ -171,7 +171,7 @@ export function CustomerBooking({
                   setUser(null);
                   setEvent(null);
                   setBooking(null);
-                  location.assign("/coming-soon");
+                  location.assign("/explore");
                 })
               }
             >

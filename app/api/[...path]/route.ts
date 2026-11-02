@@ -348,14 +348,6 @@ async function handle(req: NextRequest) {
                 ],
               }
             : {}),
-          ...(config.siteMode === "coming_soon" && !isAdmin(u)
-            ? {
-                OR: [
-                  { organizerId: u!.id },
-                  { staff: { some: { userId: u!.id, active: true } } },
-                ],
-              }
-            : {}),
           ...(q.get("city") && q.get("city") !== "All cities"
             ? { city: q.get("city")! }
             : {}),

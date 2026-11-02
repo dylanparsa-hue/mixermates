@@ -1,19 +1,16 @@
 import { test, expect } from "@playwright/test";
 import { readFile } from "node:fs/promises";
 
-test("public discovery stays behind Coming Soon and private API denial", async ({
-  page,
-  request,
-}) => {
-  await page.goto("/explore");
-  await expect(page).toHaveURL(/\/coming-soon$/);
-  await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "Your Next",
-  );
-  const response = await request.get("/api/events");
+test("public app opens directly and protects private APIs", async ({ page, request }) => {
+  await page.goto("/");
+  await expect(page.locator(".coming-stage")).toHaveCount(0);
+  await expect(page).not.toHaveTitle(/Coming Soon/);
+  await expect(page.getByRole("button", {name:"Sign in",exact:true})).toBeVisible();
+  await page.goto("/coming-soon");
+  await expect(page).toHaveURL(/\/explore$/);
+  const response=await request.get("/api/tickets");
   expect(response.status()).toBe(401);
   expect(response.headers()["cache-control"]).toContain("no-store");
-  expect(JSON.stringify(await response.json())).not.toContain("privateVenue");
 });
 
 test("authorized discovery, theme and keyboard navigation use current selectors", async ({

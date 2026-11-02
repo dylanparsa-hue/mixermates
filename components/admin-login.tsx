@@ -17,8 +17,8 @@ export function AdminLogin() {
       window.location.replace("/");
     } catch(e) { setError(e instanceof Error ? e.message : "Connection failed. Try again.");setBusy(false); }
   }
-  return <main className="coming-shell admin-login-shell">
-    <header className="coming-header"><Link href="/coming-soon" aria-label="MixerMates coming soon"><BrandLogo theme="dark" decorative/></Link><Link href="/coming-soon" className="coming-back"><ArrowLeft size={15} aria-hidden="true"/>Back</Link></header>
+  return <main className="access-shell admin-login-shell">
+    <header className="access-header"><Link href="/explore" aria-label="MixerMates home"><BrandLogo theme="dark" decorative/></Link><Link href="/explore" className="access-back"><ArrowLeft size={15} aria-hidden="true"/>Back</Link></header>
     <section className="admin-login-form" aria-labelledby="admin-login-title">
       <LockKeyhole size={24} aria-hidden="true"/>
       <h1 id="admin-login-title">A little behind<br/>the scenes.</h1>

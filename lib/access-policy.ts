@@ -1,10 +1,10 @@
 import type { SiteConfig } from "./site-config";
 export type AccessUser = { id: string; role: string; active?: boolean; capabilities?: {capability:string;active?:boolean}[] } | null;
-export type RouteClass = "PUBLIC_COMING_SOON" | "PUBLIC_STATIC_ASSET" | "AUTHENTICATION" | "ADMIN_PREVIEW" | "ORGANIZER_SCOPED" | "CUSTOMER_SCOPED" | "EVENT_INVITATION" | "PRIVATE_API" | "TICKET_SALES" | "HEALTH_CHECK" | "UNKNOWN";
+export type RouteClass = "PUBLIC_APPLICATION" | "PUBLIC_STATIC_ASSET" | "AUTHENTICATION" | "ADMIN_PREVIEW" | "ORGANIZER_SCOPED" | "CUSTOMER_SCOPED" | "EVENT_INVITATION" | "PRIVATE_API" | "TICKET_SALES" | "HEALTH_CHECK" | "UNKNOWN";
 export const isAdmin = (user: AccessUser) => !!user && user.active !== false && user.role === "ADMIN";
 export const isOrganizer = (user: AccessUser) => !!user && user.active !== false && (["ORGANIZER","STAFF"].includes(user.role) || !!user.capabilities?.some(c=>c.active!==false && ["ORGANIZER","EVENT_STAFF"].includes(c.capability)));
 export function classifyPage(path: string): RouteClass {
-  if (["/","/coming-soon"].includes(path)) return "PUBLIC_COMING_SOON";
+  if (path === "/") return "PUBLIC_APPLICATION";
   if (["/admin/login","/organizer/login"].includes(path)) return "AUTHENTICATION";
   if (path === "/admin") return "ADMIN_PREVIEW";
   if (["/organizer","/create"].includes(path)) return "ORGANIZER_SCOPED";
@@ -36,14 +36,6 @@ export function apiAccess(path: string, method: string, user: AccessUser, config
   if (category === "UNKNOWN") return { allowed:false, status:404, error:"Not found." };
   if (process.env.NODE_ENV === "production" && method === "POST" && productionBlockedActions.has(path)) return {allowed:false,status:503,error:"Real payments, refunds, ticket sales and admission are not available. This release is for browsing and account setup."};
   if ((["admin/login","preview/login","reset-request","reset-password"].includes(path) && method === "POST") || path === "me" || (path === "logout" && method === "POST")) return {allowed:true};
-  if (config.siteMode === "coming_soon") {
-    if (!user) return {allowed:false,status:401,error:"Please sign in to continue."};
-    if (!isAdmin(user)) {
-      const scoped = isOrganizer(user) && (["event-operations","event-operations/request","operations","operations/refund-review","operations/support-request","operations/preferences","operations/notice","notifications","staff-assignment","setup","event-workspace","organizer-identity","event-draft","event-submit","payment-destination","payment-destination-action","verification-submit"].includes(path) || path.startsWith("payment-qr/") || path === "organizer" || path === "events" || path.startsWith("events/") || path.startsWith("receipt/") || path.startsWith("media/") || path === "checkin" || path.startsWith("entrance-export/") || path.startsWith("entrance/") || ["invitations","invitations/revoke","staff","event-state","booking/expire","ticket/revoke"].includes(path) || ((user.role === "ORGANIZER" || !!user.capabilities?.some(c=>c.capability==="ORGANIZER" && c.active!==false)) && ["event","pause","upload","verification"].includes(path)));
-      if (!scoped) return {allowed:false,status:403,error:"This part of MixerMates is not available yet."};
-    }
-    if (["demo","login","register","reset-request","reset-password"].includes(path)) return {allowed:false,status:403,error:"Use the restricted sign-in entry."};
-  }
   if (category === "TICKET_SALES") {
     if (!user) return {allowed:false,status:401,error:"Please sign in to continue."};
     if (!localDemo || config.siteMode !== "full_platform") return {allowed:false,status:503,error:"Ticket sales and payment actions are disabled during local development."};
@@ -53,12 +45,7 @@ export function apiAccess(path: string, method: string, user: AccessUser, config
 export function pageAccess(path: string, user: AccessUser, config: SiteConfig) {
   const category = classifyPage(path);
   if (category === "UNKNOWN") return "not_found" as const;
-  if (path === "/coming-soon" || ["/admin/login","/organizer/login"].includes(path)) return "public" as const;
-  if (config.siteMode === "coming_soon") {
-    if (isAdmin(user)) return "admin_preview" as const;
-    if (isOrganizer(user) && (["/organizer"].includes(path) || (path === "/create" && (user?.role === "ORGANIZER" || !!user?.capabilities?.some(c=>c.capability==="ORGANIZER" && c.active!==false))) || category === "EVENT_INVITATION")) return "organizer_preview" as const;
-    return "coming_soon" as const;
-  }
+  if (["/admin/login","/organizer/login"].includes(path)) return "public" as const;
   if (path === "/admin" && !isAdmin(user)) return user ? "forbidden" as const : "login" as const;
   // Full-platform account creation/event ownership rules remain at the existing action layer.
   return "platform" as const;

@@ -9,7 +9,7 @@ import tempfile
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--directory', type=Path, help='New, nonexistent workspace directory')
-parser.add_argument('--mode', choices=['coming_soon','full_platform'], default='coming_soon', help='Safe preview by default; full_platform is isolated fictional regression only')
+parser.add_argument('--mode', choices=['coming_soon','full_platform'], default='full_platform', help='Fictional local app; coming_soon is a legacy configuration compatibility option')
 parser.add_argument('--port', type=int, default=3001)
 args = parser.parse_args()
 if not 1024 <= args.port <= 65535: parser.error('Use an unprivileged local port.')

@@ -10,7 +10,7 @@ export async function register() {
   if (config.requestedTicketSalesMode !== "disabled") console.warn("MixerMates ticket sales remain locked until launch acceptance.");
   if (
     process.env.NEXT_RUNTIME === "nodejs" &&
-    config.siteMode !== "coming_soon" &&
+    process.env.SITE_MODE === "full_platform" &&
     process.env.HOSTINGER_DATABASE_BOOTSTRAP === "true" &&
     process.env.NEXT_PHASE !== "phase-production-build"
   ) {

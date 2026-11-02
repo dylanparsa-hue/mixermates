@@ -15,7 +15,7 @@ export function testLabEnvironment(
     env.ISOLATED_TEST_DATA !== "true" ||
     env.LOCAL_CUSTOMER_TEST_ENABLED !== "true" ||
     env.TICKET_SALES_MODE !== "disabled" ||
-    env.SITE_MODE !== "coming_soon" ||
+    !["full_platform", "coming_soon"].includes(env.SITE_MODE || "") ||
     env.DEMO_MODE !== "false" ||
     env.LOCAL_DEMO_BOOKING_ENABLED !== "false" ||
     env.HOSTINGER_DATABASE_BOOTSTRAP !== "false" ||

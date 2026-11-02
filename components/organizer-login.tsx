@@ -6,12 +6,12 @@ export function OrganizerLogin() {
   const [error, setError] = useState(""),
     [busy, setBusy] = useState(false);
   return (
-    <main className="coming-shell admin-login-shell">
-      <header className="coming-header">
-        <Link href="/coming-soon" aria-label="MixerMates coming soon">
+    <main className="access-shell admin-login-shell">
+      <header className="access-header">
+        <Link href="/explore" aria-label="MixerMates home">
           <BrandLogo theme="dark" decorative />
         </Link>
-        <Link href="/coming-soon">Back</Link>
+        <Link href="/explore">Back</Link>
       </header>
       <section className="admin-login-form">
         <h1>Organizer studio</h1>

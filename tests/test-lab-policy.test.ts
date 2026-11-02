@@ -19,6 +19,7 @@ const env = {
 };
 test("Test Lab requires every explicit local development guard", () => {
   assert(testLabEnvironment(env, cwd));
+  assert(testLabEnvironment({ ...env, SITE_MODE: "full_platform" }, cwd));
   for (const k of Object.keys(env))
     assert.equal(testLabEnvironment({ ...env, [k]: undefined }, cwd), false, k);
   for (const NODE_ENV of ["production", "test", "Development", ""])

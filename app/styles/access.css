@@ -1,0 +1,55 @@
+/* Shared authentication screens; the Coming Soon screen is removed. */
+.access-shell {
+  --access-bg: #090b18;
+  --access-ink: #fafaff;
+  --access-muted: #bdb8d3;
+  --access-line: #2e2944;
+  --access-purple: #532fea;
+  --access-pink: #ed07fb;
+  color-scheme: dark;
+  isolation: isolate;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  padding: max(32px,env(safe-area-inset-top)) max(5vw,env(safe-area-inset-right)) max(20px,env(safe-area-inset-bottom)) max(5vw,env(safe-area-inset-left));
+  overflow: clip;
+  background: var(--access-bg);
+  color: var(--access-ink);
+}
+body:has(.access-shell) { background:#090b18; }
+.access-shell * { box-sizing:border-box; }
+.access-shell a,.access-shell button { -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
+.access-shell a:focus-visible,.access-shell button:focus-visible { outline:2px solid #c6adff; outline-offset:5px; }
+.access-shell ::selection { color:#fff; background:#6827bd; }
+.access-header { display:flex; justify-content:space-between; align-items:center; gap:18px; width:100%; max-width:1440px; margin:0 auto; }
+.access-header .brand-logo { width:220px; }
+.access-header>a { display:inline-flex; align-items:center; min-height:44px; }
+.access-back { color:var(--access-muted); gap:8px; font-size:13px; text-decoration:none; }
+.access-back:hover { color:var(--access-ink); }
+.admin-login-shell { background:radial-gradient(ellipse at 70% 25%,#532fea1b,transparent 60%),var(--access-bg); }
+.admin-login-form { width:min(100%,410px); margin:auto; padding:64px 0; }
+.admin-login-form>svg { color:#ba9ef4; margin-bottom:20px; }
+.admin-login-form h1 { font-family:var(--font-heading),sans-serif; color:var(--access-ink); font-size:42px; line-height:1.12; letter-spacing:-.025em; margin:0 0 16px; font-weight:600; }
+.admin-login-form>p { color:var(--access-muted); font-size:14px; line-height:1.65; margin-bottom:30px; }
+.admin-login-form form { display:flex; flex-direction:column; }
+.admin-login-form label { color:var(--access-ink); font-size:13px; margin:0 0 8px; }
+.admin-login-form input { width:100%; margin:0 0 22px; min-height:50px; padding:13px 15px; border:1px solid #39304e; border-radius:10px; background:#111329; color:var(--access-ink); caret-color:#c6adff; font:inherit; font-size:16px; }
+.admin-login-form input::placeholder { color:#9f96b8; }
+.admin-login-form input:focus-visible { outline:2px solid #ba9ef4; outline-offset:3px; }
+.admin-login-form button { display:flex; justify-content:space-between; align-items:center; width:100%; min-height:50px; padding:14px 18px; background:linear-gradient(110deg,#6525d8,#b600a9); color:#fff; border:0; border-radius:10px; font:inherit; font-size:14px; font-weight:600; cursor:pointer; }
+.admin-login-form button:hover { filter:brightness(1.12); }
+.admin-login-form button:disabled { opacity:.65; cursor:wait; }
+.admin-login-form>small { display:block; margin-top:20px; font-size:11px; line-height:1.6; color:var(--access-muted); }
+.admin-login-form .admin-login-error { color:#f6b3d2; background:#371c35; border-radius:8px; padding:12px; font-size:13px; line-height:1.6; margin:0 0 16px; }
+.preview-notice { display:flex; justify-content:center; flex-wrap:wrap; align-items:center; gap:4px 18px; min-height:38px; padding:3px 14px; background:var(--surface); color:var(--muted-foreground); border-bottom:1px solid var(--border); font-size:10px; }
+.preview-notice>span:first-child { font-weight:700; letter-spacing:.06em; color:var(--primary); }
+.preview-notice a,.preview-notice button { display:inline-flex; align-items:center; gap:5px; min-height:32px; color:var(--foreground); background:none; border:0; font:inherit; text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
+.preview-notice button:disabled { opacity:.6; cursor:wait; }
+@media(max-width:767px) {
+  .access-shell { padding: max(22px,env(safe-area-inset-top)) max(24px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(24px,env(safe-area-inset-left)); }
+  .access-header .brand-logo { width:180px; }
+  .admin-login-form { padding:48px 0; }
+  .preview-notice a,.preview-notice button { min-height:44px; }
+}
+@media(max-width:359px) { .access-header .brand-logo { width:156px; } }

@@ -21,7 +21,7 @@ The preparation script makes a NEW disposable workspace, creates a contained fic
 
 Open **http://localhost:3084/**. A fictional customer session starts automatically. The same identity can create events and use Organizer Studio. The Workspace menu provides Organizer and Admin views; Review tools keeps independent administrator, finance and entrance staff identities. Nothing is publicly reachable: the server binds to loopback only.
 
-The generated `.env` sets a contained `DATABASE_URL`, loopback `APP_ORIGIN`, `SITE_MODE=coming_soon`, `TICKET_SALES_MODE=disabled`, `ISOLATED_TEST_DATA=true`, and the explicit local Test Lab, customer test and payment simulator flags. It disables hosted bootstrap, demo booking and external provider configuration. Never reuse these flags in production. `.env.example` documents normal safe defaults. Google credentials are optional and remain outside Git.
+The generated `.env` sets a contained `DATABASE_URL`, loopback `APP_ORIGIN`, `SITE_MODE=full_platform`, `TICKET_SALES_MODE=disabled`, `ISOLATED_TEST_DATA=true`, and the explicit local Test Lab, customer test and payment simulator flags. It disables hosted bootstrap, demo booking and external provider configuration. Never reuse these flags in production. `.env.example` documents normal safe defaults. Google credentials are optional and remain outside Git.
 
 For password-based testing, open the local website first and then run:
 

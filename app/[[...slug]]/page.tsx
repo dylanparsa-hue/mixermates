@@ -7,7 +7,6 @@ import { pageAccess, classifyPage } from "@/lib/access-policy";
 import { getSiteConfig } from "@/lib/site-config";
 import { db } from "@/lib/db";
 import { canAccessEvent } from "@/lib/event-access";
-import { PreviewShell } from "@/components/preview-shell";
 export const dynamicParams = true;
 export const revalidate = 0;
 export default async function Page({
@@ -19,6 +18,7 @@ export default async function Page({
 }) {
   const { slug = [] } = await params;
   const path = "/" + slug.join("/");
+  if (path === "/coming-soon") redirect("/explore");
   const localCandidate =
     process.env.NODE_ENV === "development" &&
     process.env.MIXERMATES_TEST_LAB === "enabled";
@@ -58,9 +58,6 @@ export default async function Page({
     lab ? { ...getSiteConfig(), siteMode: "full_platform" } : getSiteConfig(),
   );
   if (decision === "not_found" || decision === "forbidden") notFound();
-  if (decision === "coming_soon") {
-    redirect("/coming-soon");
-  }
   if (decision === "login") redirect("/admin/login");
   if(path.startsWith("/organizers/")) {
     if(!await publicOrganizerProfile(slug[1],user))notFound();
@@ -71,13 +68,6 @@ export default async function Page({
       select: { id: true, organizerId: true, access: true, status: true },
     });
     if (!event || !(await canAccessEvent(event, user))) notFound();
-  }
-  if (decision === "admin_preview" || decision === "organizer_preview") {
-    return (
-      <PreviewShell userId={user!.id} role={user!.role}>
-        <Vibey restrictedOrganizer={decision === "organizer_preview"} />
-      </PreviewShell>
-    );
   }
   return <Vibey />;
 }

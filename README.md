@@ -4,6 +4,8 @@ MixerMates uses Next.js, React, TypeScript and Prisma. Current work runs locally
 
 On Windows, start with [Windows setup](docs/SETUP_WINDOWS.md). For macOS/Linux, use [Setup on another computer](docs/SETUP_ON_ANOTHER_COMPUTER.md). It covers frozen dependency installation, new database initialization, fictional account provisioning, localhost startup and regression checks. Use the guarded preparation scripts; do not point a development/test command at the original database or production.
 
+The Coming Soon screen has been removed. The application opens directly, including with older `SITE_MODE=coming_soon` settings. If updating an existing installation, follow the Windows guide's **Already have an older copy?** section; a previously prepared Lab is a separate source copy.
+
 The current organizer flow is **Event Details → Tickets → Design Event Page → Submit for Approval**. Same-account organizer access is free. The live designer and saved customer page share rendering, and independent administrator review is separate from payment readiness. The fixed 5% fee and existing booking, refund and admission protections remain.
 
 See [Organizer Phase 3 handoff](docs/ORGANIZER_PHASE_3_REPORT.md) for implemented changes, actual checks and remaining work. Google provider verification, approved platform Booking Terms and additional session scheduling remain open. Owner visual acceptance is separate.
