@@ -1,0 +1,20 @@
+# Proposal only. Enter secrets privately in Hostinger after release approval.
+NODE_ENV=production
+APP_ORIGIN=https://mixermates.com
+SITE_MODE=coming_soon
+TICKET_SALES_MODE=disabled
+DATABASE_URL=mysql://REPLACE_USER:REPLACE_PASSWORD@REPLACE_HOST:3306/REPLACE_DATABASE
+# Alternatively preserve Hostinger's actual DB_* group; do not mix stale groups.
+DEMO_MODE=false
+LOCAL_DEMO_BOOKING_ENABLED=false
+LOCAL_CUSTOMER_TEST_ENABLED=false
+ISOLATED_TEST_DATA=false
+MYSQL_DISPOSABLE_TEST=false
+HOSTINGER_DATABASE_BOOTSTRAP=false
+HOSTINGER_SEED_DEMO=false
+EVIDENCE_MAX_BYTES=10000000
+RESERVATION_MINUTES=60
+EXPIRY_WORKER_ENABLED=false
+# Before real operation, approve the hold policy, configure a named active
+# EXPIRY_ACTOR_ID and enable the five-minute server cron in the release plan.
+# AUTH_TRUST_PROXY remains absent until Hostinger header stripping is verified.

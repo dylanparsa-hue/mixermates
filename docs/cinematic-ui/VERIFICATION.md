@@ -1,0 +1,17 @@
+# Local verification — 28 October 2026
+
+- Current automated baseline: **356 passed, zero failed or skipped** (`pnpm test`) on an isolated SQLite regression workspace with a separate guarded access-test server. Existing tests preserved; e2e headline expectation updated to the requested new heading.
+- Current desktop/mobile Playwright suite: **10 passed**. Public Coming Soon denial; authorized discovery, themes and keyboard; scanner/finance separation; draft save/reload; support response persisted.
+- `pnpm typecheck`, `pnpm exec prisma validate`, `pnpm exec next build --webpack`: pass. Prisma reports the existing package.json configuration deprecation; schema remains valid. No schema changes.
+- Responsive: **210 executions** across 15 routes/screens × Light/Dark × 320/375/390/430/768/1024/1440px. Zero document overflow, broken images, over-wrapped action labels, checked text-edge collisions or page errors. Actual screenshot review is separate.
+- Navigation: zero geometric collisions at all seven target widths; centered official logo tested with asymmetric controls.
+- Interaction checks: search/clear/empty/reset, categories, URL persistence/reload, view-all, native arrows and keyboard carousel controls, save/unsave, community keyboard tabs, mobile booking CTA, Light/Dark/System, landscape, reduced motion, booking terms dialog.
+- Fictional Lab: organizer creation/submission; distinct administrator event approval; mobile actual booking forms; fake evidence upload; distinct funds review; independent registration approval; TEST issuance; actual rendered QR decoding; first admission; duplicate rejection; reschedule review; refund review/fictional transfer acknowledgement; local support. Signup, duplicate account rejection, normal login and local recovery also executed. Wrong-role confirmations denied; evidence alone never issued a ticket.
+- Optimized loopback build: public Coming Soon preserved, Test Lab API returns 404 under production runtime, no page errors, reduced-motion hero remains static. `optimized-performance.json` records the bounded local scroll measurement; this is one desktop machine, not a field/mobile performance guarantee.
+- Preservation: 41 protected source/brand/migration files match the pre-edit snapshot, including original Coming Soon components/styles and booking/payment/entrance/Test Lab guards. Canonical DB and source .env were not used by QA. Snapshot location is in preservation-results.json.
+
+First recovery-test setup lacked its required fictional marker; the marker was added only to the disposable workspace and the complete suite then passed. A stale fictional payment reservation exposed a broken protected QR request; the frontend now hides elapsed/unavailable QR instructions with a refresh/contact message. A malformed mobile screenshot was replaced using a fresh phone context before the independent review. No backend gates were weakened.
+
+Screenshots: `final/` contains full desktop/phone captures plus hero, categories, carousel, creators, campaigns and footer crops. `after/` contains the broader theme matrix. `comparison-1440.png` and `comparison-390.png` show the original and rebuilt first viewport. Admission QR secrets are masked; fictional payment QR is explicitly nonfinancial.
+
+No production service access, deployment, upload, real payment, sales, external message, tunnel or hosting/DNS/environment change was performed. All running application servers bind to loopback. Owner visual acceptance is pending.

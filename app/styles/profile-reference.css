@@ -1,0 +1,989 @@
+/* Red editorial profile system, following the user's supplied mobile reference. */
+.profile-page {
+  padding: 38px 0 0;
+  background: radial-gradient(ellipse at 50% 10%, var(--surface) 0, transparent 52%);
+  min-height: 90vh;
+}
+.identity-sheet {
+  width: min(100% - 40px, 540px);
+  margin: 0 auto;
+  position: relative;
+  isolation: isolate;
+  border-radius: 32px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: 0 22px 100px color-mix(in srgb, var(--shadow) 47%, transparent);
+}
+.identity-art {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 820px;
+  z-index: -2;
+  background: var(--brand-purple);
+  overflow: hidden;
+}
+.identity-art > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(0.9) contrast(1.06);
+}
+.identity-art-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    var(--surface) 0%,
+    color-mix(in srgb, var(--surface) 96%, transparent) 12%,
+    color-mix(in srgb, var(--surface) 58%, transparent) 30%,
+    transparent 60%,
+    color-mix(in srgb, var(--brand-purple) 7%, transparent) 100%
+  );
+}
+.identity-topline {
+  position: absolute;
+  top: 27px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  z-index: 10;
+}
+.identity-topline > span {
+  color: var(--primary);
+  font-size: 15px;
+  letter-spacing: -0.35px;
+}
+.identity-topline > span > b {
+  font-weight: 500;
+  color: var(--primary);
+}
+.identity-round {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--muted-foreground) 65%, transparent);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+.identity-round:hover {
+  background: color-mix(in srgb, var(--muted-foreground) 66%, transparent);
+  color: var(--foreground);
+}
+.identity-menu-wrap {
+  position: relative;
+}
+.identity-menu {
+  position: absolute;
+  right: -2px;
+  top: 55px;
+  border: 1px solid var(--border);
+  box-shadow: 0 15px 50px color-mix(in srgb, var(--shadow) 53%, transparent);
+  border-radius: 13px;
+  padding: 9px;
+  background: color-mix(in srgb, var(--surface) 96%, transparent);
+  backdrop-filter: blur(20px);
+  width: 225px;
+  display: grid;
+  gap: 4px;
+}
+.identity-menu > button {
+  padding: 13px 10px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 11px;
+  text-align: left;
+  color: var(--foreground);
+  border-radius: 7px;
+}
+.identity-menu > button:hover {
+  background: color-mix(in srgb, var(--foreground) 4%, transparent);
+}
+.identity-emblems {
+  position: absolute;
+  top: 100px;
+  left: 26px;
+  right: 26px;
+  height: 230px;
+  z-index: 2;
+}
+.identity-badge {
+  position: absolute;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 13px;
+}
+.identity-badge small {
+  font-size: 11px;
+  color: var(--foreground);
+  text-shadow: 0 1px 10px color-mix(in srgb, var(--shadow) 73%, transparent);
+  letter-spacing: -0.1px;
+  white-space: nowrap;
+}
+.identity-badge:hover > span {
+  filter: brightness(1.22);
+  transform: rotate(0) scale(1.035);
+}
+.identity-badge > span {
+  transition:
+    transform 0.2s,
+    filter 0.2s;
+  border: 2px solid var(--border);
+  box-shadow:
+    inset 0 0 15px color-mix(in srgb, var(--border) 2%, transparent),
+    0 8px 25px color-mix(in srgb, var(--shadow) 13%, transparent);
+  background: var(--surface);
+  color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.member-badge {
+  left: 0;
+  top: 55px;
+}
+.member-badge .member-symbols {
+  width: 84px;
+  height: 84px;
+  border-radius: 28px;
+  transform: rotate(-24deg);
+  gap: 3px;
+}
+.member-symbols > i {
+  display: block;
+  background: var(--surface-elevated);
+  width: 18px;
+  height: 18px;
+  transform: rotate(24deg);
+}
+.member-symbols > i:first-child {
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  width: 21px;
+}
+.member-symbols > i:nth-child(2) {
+  border-radius: 50%;
+}
+.member-badge small {
+  position: relative;
+  left: -3px;
+}
+.first-badge {
+  left: 72px;
+  top: 3px;
+}
+.first-badge > span {
+  width: 122px;
+  height: 67px;
+  transform: rotate(13deg);
+  border-radius: 50%;
+  color: var(--primary);
+}
+.first-badge svg {
+  transform: rotate(-13deg);
+  filter: drop-shadow(0 0 4px color-mix(in srgb, var(--brand-purple) 20%, transparent));
+}
+.first-badge small {
+  margin-top: 1px;
+}
+.explorer-badge {
+  right: 5px;
+  top: 64px;
+}
+.explorer-badge > span {
+  height: 108px;
+  width: 108px;
+  background: var(--surface);
+  clip-path: polygon(
+    50% 0%,
+    60% 5%,
+    70% 3%,
+    76% 12%,
+    87% 14%,
+    89% 25%,
+    98% 33%,
+    95% 43%,
+    100% 52%,
+    94% 62%,
+    96% 72%,
+    86% 79%,
+    82% 89%,
+    71% 90%,
+    63% 98%,
+    52% 95%,
+    41% 100%,
+    32% 93%,
+    21% 93%,
+    17% 82%,
+    7% 77%,
+    7% 65%,
+    0% 57%,
+    5% 47%,
+    2% 36%,
+    11% 29%,
+    14% 18%,
+    25% 15%,
+    32% 6%,
+    43% 7%
+  );
+  color: var(--primary);
+  filter: drop-shadow(0 0 1px var(--muted-foreground));
+}
+.explorer-badge > span svg {
+  transform: rotate(23deg);
+}
+.explorer-badge small {
+  margin-top: 0;
+}
+.identity-information {
+  padding: 478px 33px 25px;
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.identity-portrait {
+  position: relative;
+  z-index: 2;
+}
+.identity-portrait > .avatar {
+  border: 0;
+  box-shadow: 0 3px 30px color-mix(in srgb, var(--shadow) 13%, transparent);
+  background: var(--surface-elevated) !important;
+  font-size: 39px !important;
+  color: var(--foreground);
+}
+.identity-portrait > .avatar > img {
+  object-position: center 35%;
+  filter: saturate(0.65);
+}
+.portrait-edit {
+  position: absolute;
+  right: 1px;
+  bottom: 10px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+  color: var(--foreground);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  height: 29px;
+  width: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.identity-portrait:hover .portrait-edit,
+.portrait-edit:focus-visible {
+  opacity: 1;
+}
+.identity-information h1 {
+  font-size: 28px;
+  letter-spacing: -1px;
+  margin-top: 21px;
+  font-weight: 650;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--foreground);
+  line-height: 1.15;
+}
+.identity-information h1 > svg {
+  color: var(--primary);
+}
+.identity-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 11px;
+  flex-wrap: wrap;
+}
+.identity-stats > button {
+  padding: 0;
+  font-size: 12px;
+  letter-spacing: -0.2px;
+  color: var(--foreground);
+  line-height: 1.4;
+}
+.identity-stats strong {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.identity-stats > button:hover {
+  color: var(--primary);
+}
+.identity-bio {
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--muted-foreground);
+  max-width: 340px;
+  white-space: pre-line;
+  margin-top: 12px;
+  letter-spacing: -0.15px;
+}
+.identity-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  margin-top: 13px;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+.identity-links > button,
+.identity-links > a {
+  font-size: 10px;
+  letter-spacing: 0.2px;
+  padding: 7px 12px;
+  border-radius: 22px;
+  background: color-mix(in srgb, var(--surface-elevated) 54%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 29px;
+  color: var(--foreground);
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--border) 2%, transparent);
+}
+.identity-links > button:hover,
+.identity-links > a:hover {
+  background: color-mix(in srgb, var(--muted-foreground) 60%, transparent);
+}
+.identity-overlap-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 27px;
+  margin-top: 20px;
+}
+.identity-overlap {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  align-items: center;
+  min-width: 125px;
+}
+.overlap-avatars,
+.overlap-clubs {
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  isolation: isolate;
+  min-height: 43px;
+}
+.overlap-avatars > .avatar,
+.overlap-avatars > .empty-friend-avatar {
+  border: 2px solid var(--border);
+  margin-left: -8px;
+}
+.overlap-avatars > .avatar {
+  color: var(--foreground) !important;
+  background: var(--surface-elevated) !important;
+  font-size: 12px !important;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--shadow) 27%, transparent);
+}
+.overlap-avatars > b,
+.overlap-clubs > b {
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--muted-foreground);
+  color: var(--foreground);
+  border: 2px solid var(--border);
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  font-weight: 600;
+  margin-left: -8px;
+  z-index: 4;
+  box-shadow: 0 2px 12px color-mix(in srgb, var(--shadow) 20%, transparent);
+}
+.empty-friend-avatar {
+  width: 43px;
+  height: 43px;
+  border: 2px solid var(--border);
+  background: var(--surface-elevated);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted-foreground);
+}
+.identity-overlap > small {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  letter-spacing: -0.15px;
+}
+.identity-overlap:hover > small {
+  color: var(--muted-foreground);
+}
+.club-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  font-size: 31px;
+  line-height: 1;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+  box-shadow: 0 2px 10px color-mix(in srgb, var(--shadow) 20%, transparent);
+}
+.overlap-clubs > .club-icon {
+  margin-left: -8px;
+  transform: rotate(-5deg);
+}
+.overlap-clubs > .club-icon:nth-child(2) {
+  transform: rotate(2deg);
+}
+.overlap-clubs > .club-icon:nth-child(3) {
+  transform: rotate(-1deg);
+}
+.overlap-clubs > b {
+  border-radius: 9px;
+  margin-left: -8px;
+}
+.identity-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+  margin-top: 21px;
+}
+.identity-actions > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border-radius: 14px;
+  padding: 17px 12px;
+  min-height: 55px;
+  background: linear-gradient(145deg, var(--surface), var(--surface));
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--border) 2%, transparent);
+  color: var(--muted-foreground);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+.identity-actions > button > svg {
+  color: var(--muted-foreground);
+}
+.identity-actions > button:hover {
+  background: linear-gradient(145deg, var(--surface-elevated), var(--surface));
+  color: var(--primary);
+}
+.identity-customize {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: 9px;
+  color: var(--muted-foreground);
+  padding: 0;
+}
+.identity-customize:hover {
+  color: var(--muted-foreground);
+}
+.identity-about {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 22px;
+  padding: 10px 0 0;
+}
+.identity-about > h3 {
+  font-size: 24px;
+  font-weight: 500;
+}
+.identity-about > p {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+  color: var(--muted-foreground);
+  line-height: 1.9;
+  white-space: pre-line;
+}
+.identity-about > .interest-tags {
+  justify-content: center;
+}
+.badge-orange {
+  color: var(--primary);
+}
+.badge-blue {
+  color: var(--primary);
+}
+.profile-people-list {
+  display: grid;
+  margin-top: 14px;
+}
+.profile-people-list > a {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  border-bottom: 1px solid var(--border);
+  padding: 17px 0;
+  text-align: left;
+}
+.profile-people-list > a > div {
+  flex: 1;
+}
+.profile-people-list strong {
+  font-size: 13px;
+  font-weight: 500;
+}
+.profile-people-list small {
+  display: block;
+  margin-top: 6px;
+  font-size: 10px;
+  color: var(--muted-foreground);
+}
+.profile-people-list > a > svg {
+  color: var(--muted-foreground);
+}
+.club-directory {
+  margin-top: 15px;
+}
+.club-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 23px 0;
+  border-bottom: 1px solid var(--border);
+}
+.club-row > .club-icon {
+  width: 48px;
+  height: 48px;
+  font-size: 33px;
+  border-color: var(--border);
+  border-radius: 10px;
+}
+.club-row > div {
+  flex: 1;
+}
+.club-row strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+.club-row p {
+  font-size: 10px;
+  color: var(--muted-foreground);
+  margin-top: 8px;
+  line-height: 1.8;
+}
+.club-row small {
+  display: block;
+  color: var(--muted-foreground);
+  font-size: 8px;
+  margin-top: 8px;
+}
+.club-row .button {
+  padding: 0 14px;
+  min-height: 34px;
+  font-size: 9px;
+  gap: 5px;
+  margin-top: 4px;
+}
+.club-row .checkbox {
+  font-size: 9px;
+  margin-top: 13px;
+  color: var(--muted-foreground);
+}
+.club-directory > p {
+  margin-top: 22px;
+  line-height: 1.8;
+  font-size: 10px;
+}
+.profile-content.page-width {
+  max-width: 1080px;
+  margin-top: 45px;
+  padding-bottom: 30px;
+}
+.profile-content > .page-tabs {
+  justify-content: center;
+  gap: 40px;
+}
+.profile-content .space-grid {
+  margin-top: 35px;
+}
+.profile-content .passport-heading {
+  margin-top: 35px;
+}
+.profile-content .detail-section {
+  margin-top: 25px;
+}
+@media (min-width: 1100px) {
+  .identity-sheet {
+    width: 540px;
+  }
+  .identity-art {
+    height: 860px;
+  }
+  .identity-information {
+    padding-top: 485px;
+    padding-bottom: 27px;
+  }
+  .identity-portrait > .avatar {
+    width: 154px !important;
+    height: 154px !important;
+  }
+  .identity-information h1 {
+    font-size: 30px;
+  }
+  .identity-stats > button {
+    font-size: 13px;
+  }
+  .identity-bio {
+    font-size: 15px;
+  }
+  .identity-links {
+    margin-top: 14px;
+  }
+  .identity-links > button,
+  .identity-links > a {
+    font-size: 11px;
+  }
+  .identity-overlap-row {
+    margin-top: 23px;
+  }
+  .identity-actions > button {
+    font-size: 16px;
+  }
+  .identity-topline > span {
+    font-size: 16px;
+  }
+  .identity-emblems {
+    top: 108px;
+  }
+}
+@media (max-width: 700px) {
+  .profile-page {
+    padding-top: 0;
+    background: var(--background);
+  }
+  .identity-sheet {
+    width: 100%;
+    max-width: 520px;
+    border-radius: 0 0 28px 28px;
+    border: 0;
+    box-shadow: none;
+  }
+  .identity-topline {
+    top: 22px;
+    left: 18px;
+    right: 18px;
+    gap: 10px;
+  }
+  .identity-topline > span {
+    font-size: 13px;
+    letter-spacing: -0.35px;
+  }
+  .identity-round {
+    width: 37px;
+    height: 37px;
+  }
+  .identity-round > svg {
+    width: 21px;
+    height: 21px;
+  }
+  .identity-emblems {
+    top: 87px;
+    left: 21px;
+    right: 23px;
+    height: 200px;
+  }
+  .member-badge {
+    left: 0;
+    top: 49px;
+  }
+  .member-badge .member-symbols {
+    width: 72px;
+    height: 72px;
+    border-radius: 23px;
+    gap: 2px;
+  }
+  .member-symbols > i {
+    width: 15px;
+    height: 15px;
+  }
+  .member-symbols > i:first-child {
+    width: 18px;
+  }
+  .first-badge {
+    left: 58px;
+    top: 0;
+  }
+  .first-badge > span {
+    width: 104px;
+    height: 58px;
+  }
+  .first-badge svg {
+    width: 38px;
+    height: 38px;
+  }
+  .identity-badge {
+    gap: 10px;
+  }
+  .identity-badge small {
+    font-size: 9px;
+  }
+  .explorer-badge {
+    right: 0;
+    top: 62px;
+  }
+  .explorer-badge > span {
+    width: 91px;
+    height: 91px;
+  }
+  .explorer-badge > span > svg {
+    width: 40px;
+    height: 40px;
+  }
+  .identity-art {
+    height: 715px;
+  }
+  .identity-information {
+    padding: 370px 23px 24px;
+  }
+  .identity-portrait > .avatar {
+    width: 128px !important;
+    height: 128px !important;
+    font-size: 35px !important;
+  }
+  .identity-information h1 {
+    font-size: 26px;
+    margin-top: 19px;
+    letter-spacing: -0.9px;
+  }
+  .identity-information h1 > svg {
+    width: 18px;
+  }
+  .identity-stats {
+    gap: 12px;
+    margin-top: 10px;
+  }
+  .identity-stats > button {
+    font-size: 11px;
+  }
+  .identity-bio {
+    font-size: 13px;
+    max-width: 280px;
+    margin-top: 11px;
+    line-height: 1.45;
+  }
+  .identity-links {
+    gap: 6px;
+    margin-top: 12px;
+  }
+  .identity-links > button,
+  .identity-links > a {
+    font-size: 9px;
+    min-height: 27px;
+    padding: 6px 10px;
+    gap: 5px;
+  }
+  .identity-links svg {
+    width: 12px;
+    height: 12px;
+  }
+  .identity-overlap-row {
+    gap: 23px;
+    margin-top: 20px;
+  }
+  .identity-overlap {
+    min-width: 110px;
+    gap: 10px;
+  }
+  .identity-overlap small {
+    font-size: 11px;
+  }
+  .identity-actions {
+    margin-top: 21px;
+    gap: 9px;
+  }
+  .identity-actions > button {
+    font-size: 14px;
+    min-height: 50px;
+    padding: 14px 10px;
+    border-radius: 12px;
+    gap: 8px;
+  }
+  .identity-actions > button > svg {
+    width: 19px;
+  }
+  .identity-customize {
+    font-size: 8px;
+  }
+  .identity-menu {
+    top: 47px;
+    width: 215px;
+  }
+  .identity-menu > button {
+    font-size: 10px;
+  }
+  .profile-content.page-width {
+    margin-top: 28px;
+    max-width: 520px;
+  }
+  .profile-content > .page-tabs {
+    gap: 33px;
+  }
+  .profile-content .passport-heading {
+    margin-top: 22px;
+  }
+  .club-row {
+    gap: 12px;
+  }
+  .club-row > .club-icon {
+    width: 39px;
+    height: 39px;
+    font-size: 28px;
+  }
+  .club-row strong {
+    font-size: 13px;
+  }
+  .club-row p {
+    font-size: 9px;
+  }
+  .club-row > .button {
+    font-size: 8px;
+    padding: 0 10px;
+  }
+  .profile-content .event-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .portrait-edit {
+    opacity: 0.8;
+    width: 25px;
+    height: 25px;
+    bottom: 5px;
+  }
+  .identity-art-shade {
+    background: linear-gradient(
+      0deg,
+      var(--surface) 0%,
+      color-mix(in srgb, var(--surface) 96%, transparent) 13%,
+      color-mix(in srgb, var(--surface) 58%, transparent) 29%,
+      transparent 67%
+    );
+  }
+  .identity-stats button {
+    min-height: 24px;
+  }
+  .profile-content .space-grid {
+    gap: 13px;
+  }
+}
+@media (max-width: 360px) {
+  .identity-topline > span {
+    font-size: 11px;
+  }
+  .identity-round {
+    width: 33px;
+    height: 33px;
+  }
+  .identity-emblems {
+    left: 13px;
+    right: 17px;
+  }
+  .identity-badge small {
+    font-size: 8px;
+  }
+  .identity-information {
+    padding-top: 340px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .identity-art {
+    height: 680px;
+  }
+  .identity-portrait > .avatar {
+    width: 115px !important;
+    height: 115px !important;
+  }
+  .identity-information h1 {
+    font-size: 24px;
+  }
+  .identity-stats {
+    gap: 9px;
+  }
+  .identity-stats > button {
+    font-size: 10px;
+  }
+  .identity-bio {
+    font-size: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .identity-badge:hover > span {
+    transform: none;
+  }
+}
+/* The reference is an immersive profile overlay: its own close/menu controls
+   replace duplicate mobile chrome, while desktop keeps the main navigation. */
+@media (max-width: 700px) {
+  body:has(.profile-route .identity-sheet) .topbar,
+  body:has(.profile-route .identity-sheet) > .bottom-nav,
+  body:has(.profile-route .identity-sheet) .bottom-nav {
+    display: none;
+  }
+  body:has(.profile-route .identity-sheet) footer {
+    display: none;
+  }
+  .identity-stats > button {
+    font-size: 13px;
+  }
+  .identity-bio {
+    font-size: 14px;
+  }
+  .identity-links > button,
+  .identity-links > a {
+    font-size: 10px;
+  }
+  .identity-information h1 {
+    font-size: 27px;
+  }
+  .identity-portrait > .avatar {
+    width: 136px !important;
+    height: 136px !important;
+  }
+  .identity-information {
+    padding-top: 355px;
+  }
+}
+@media (min-width: 701px) {
+  .identity-stats > button {
+    font-size: 15px;
+  }
+  .identity-links > button,
+  .identity-links > a {
+    font-size: 12px;
+  }
+  .identity-portrait > .avatar {
+    width: 166px !important;
+    height: 166px !important;
+  }
+}

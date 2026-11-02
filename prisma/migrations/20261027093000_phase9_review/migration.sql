@@ -1,0 +1,10 @@
+ALTER TABLE `PaymentEvidence` ADD COLUMN `receiptSha256` TEXT NULL;
+ALTER TABLE `PaymentEvidence` ADD COLUMN `referenceDigest` TEXT NULL;
+ALTER TABLE `PaymentEvidence` ADD COLUMN `claimedAmount` INTEGER NULL;
+ALTER TABLE `PaymentEvidence` ADD COLUMN `claimedRecipient` TEXT NULL;
+ALTER TABLE `PaymentEvidence` ADD COLUMN `riskIndicators` TEXT NOT NULL DEFAULT '[]';
+CREATE INDEX `PaymentEvidence_receiptSha256_idx` ON `PaymentEvidence` (`receiptSha256`);
+CREATE INDEX `PaymentEvidence_referenceDigest_idx` ON `PaymentEvidence` (`referenceDigest`);
+ALTER TABLE `Booking` ADD COLUMN `guestName` TEXT NOT NULL DEFAULT '';
+CREATE INDEX `Booking_eventId_createdAt_id_idx` ON `Booking` (`eventId`, `createdAt`, `id`);
+CREATE INDEX `Booking_eventId_lifecycle_paymentState_idx` ON `Booking` (`eventId`, `lifecycle`, `paymentState`);

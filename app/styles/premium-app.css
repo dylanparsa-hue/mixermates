@@ -1,0 +1,472 @@
+/* Owner's four-reference redesign. Scoped to the application; Coming Soon keeps its identity. */
+body:has(.mm-platform, .customer-shell) {
+  --background: #101216;
+  --foreground: #f8f8fa;
+  --surface: #1d2026;
+  --surface-elevated: #292d34;
+  --card: #1d2026;
+  --card-foreground: #f8f8fa;
+  --border: #343841;
+  --muted: #292d34;
+  --muted-foreground: #a8abb3;
+  --primary: #c2aaff;
+  --accent: #c2aaff;
+  --accent-foreground: #17181c;
+  --ring: #c2aaff;
+  --selection: #302740;
+  --photo-overlay: #101216;
+  --on-photo: #ffffff;
+  --photo-muted: #e5e5e8;
+  --ticket-paper: #ffffff;
+  --ticket-ink: #141519;
+  --ticket-muted: #646770;
+  --ticket-line: #e0e0e4;
+  --action-gradient: linear-gradient(#f8f8fa, #f8f8fa);
+  --primary-foreground: #17181c;
+  --font-display: var(--font-body), sans-serif;
+  --ui-gutter: clamp(28px, 4vw, 56px);
+  background: var(--background);
+}
+html[data-theme="light"] body:has(.mm-platform, .customer-shell) {
+  --background: #f8f8f7;
+  --foreground: #141519;
+  --surface: #f0f0f1;
+  --surface-elevated: #ffffff;
+  --card: #ffffff;
+  --card-foreground: #141519;
+  --border: #e2e2e6;
+  --muted: #ededef;
+  --muted-foreground: #646871;
+  --primary: #6530c8;
+  --accent: #6530c8;
+  --accent-foreground: #ffffff;
+  --ring: #6530c8;
+  --selection: #eee7fa;
+  --action-gradient: linear-gradient(#17181c, #17181c);
+  --primary-foreground: #ffffff;
+}
+.mm-platform, .customer-shell { font-size: 15px; line-height: 1.6; }
+.mm-platform :is(h1,h2,h3,h4), .customer-shell :is(h1,h2,h3,h4) { font-family: var(--font-body), sans-serif; letter-spacing: -.025em; text-wrap: balance; }
+.mm-platform :is(button,a,input,select,summary), .customer-shell :is(button,a,input,select,summary) { touch-action: manipulation; }
+.mm-platform .page-width, .mm-platform .nav-inner { width: calc(100% - var(--ui-gutter)*2); max-width: 1280px; margin-inline: auto; }
+.mm-platform .standard-page { padding-block: 40px 64px; }
+.mm-platform :is(.page-heading h1,.mm-lab-heading h1), .customer-main h1 { font: 750 clamp(28px,3vw,40px)/1.2 var(--font-body),sans-serif; letter-spacing: -.03em; }
+.mm-platform .section-heading h2 { font: 750 24px/1.3 var(--font-body),sans-serif; }
+.mm-platform .button, .customer-shell .button { border-radius: 14px; font-size: 14px; min-height: 48px; padding: 12px 20px; }
+.mm-platform .button.primary, .customer-shell .button.primary { background: var(--foreground); color: var(--background); border: 1px solid transparent; box-shadow: none; }
+.mm-platform .button.primary:hover, .customer-shell .button.primary:hover { background: color-mix(in srgb,var(--foreground) 86%, var(--background)); box-shadow: none; }
+.mm-platform .button.secondary, .customer-shell .button.secondary { background: var(--surface-elevated); border: 1px solid var(--border); }
+.mm-platform :is(input,select,textarea), .customer-shell :is(input,select,textarea) { border-radius: 12px; font-size: 16px; }
+.mm-platform :is(.metric,.ops-metrics) { font-variant-numeric: tabular-nums; }
+.mm-platform .eyebrow { font-family: var(--font-body),sans-serif; letter-spacing: .02em; }
+/* Navigation is a quiet frame around event photography. */
+.mm-platform .topbar { background: var(--background); border-bottom: 1px solid var(--border); backdrop-filter: none; }
+.mm-platform .nav-inner { min-height: 88px; gap: 24px; }
+.mm-platform .desktop-nav { gap: 4px; }
+.mm-platform .desktop-nav a { border-radius: 999px; font-size: 13px; padding: 10px 14px; }
+.mm-platform .desktop-nav a.active { background: var(--foreground); color: var(--background); }
+.mm-platform .create-nav { border: 0; background: transparent; color: var(--foreground); font-size: 13px; }
+.mm-platform .topbar .desktop-brand { width: 172px; }
+.mm-platform .avatar-button { width: 44px; height: 44px; display: grid; place-items: center; }
+.mm-platform footer { background: var(--background); border-color: var(--border); margin-top: 48px; padding-top: 32px; }
+.mm-platform .footer-main .brand-logo { width: 180px; }
+.mm-platform .footer-demo { font-size: 11px; letter-spacing: 0; }
+/* Compact discovery. The photo IS the card, with a narrow calendar alongside. */
+.premium-discovery { padding-bottom: 16px; }
+html[data-theme="dark"] .premium-discovery { background: linear-gradient(#171a20 0 440px, var(--background) 440px); }
+.mm-platform .premium-discovery .mm-discovery { padding-top: 40px; }
+.discovery-heading { display: flex; justify-content: space-between; gap: 24px; align-items: center; margin-bottom: 28px; }
+.discovery-heading > div > p { color: var(--muted-foreground); font-size: 14px; margin-bottom: 6px; }
+.mm-platform .discovery-heading h1 { font: 750 clamp(28px,3.2vw,44px)/1.2 var(--font-body),sans-serif; letter-spacing: -.035em; margin: 0; }
+.discovery-location { display: flex; align-items: center; gap: 10px; border-radius: 999px; background: var(--card); padding: 4px 18px; min-height: 48px; flex: none; }
+.mm-platform .discovery-location select { color: var(--foreground); background: transparent; border: 0; appearance: none; padding: 10px 0; min-width: 130px; width: auto; font-size: 14px; }
+.mm-platform .premium-discovery .search-bar { padding: 8px; display: flex; gap: 8px; border: 1px solid var(--border); border-radius: 18px; background: var(--card); box-shadow: none; margin: 0; }
+.mm-platform .premium-discovery .search-input { flex: 1; min-width: 0; border: 0; padding: 0 12px; height: 44px; gap: 12px; }
+.mm-platform .premium-discovery .search-input input { width: 100%; min-width: 0; padding: 12px 0; background: transparent; border: 0; font-size: 15px; color: var(--foreground); }
+.mm-platform .premium-discovery .search-input > button { min-width: 32px; min-height: 44px; }
+.mm-platform .premium-discovery .filter-button { min-height: 44px; border: 0; padding: 10px 16px; border-radius: 12px; background: var(--surface); color: var(--foreground); }
+.mm-platform .premium-discovery .search-submit { width: 44px; height: 44px; border-radius: 12px; background: var(--foreground); color: var(--background); flex: none; }
+.mm-platform .premium-discovery .category-list { margin: 20px 0 32px; gap: 8px; padding: 0 0 8px; overflow-x: auto; scrollbar-width: thin; }
+.mm-platform .category-list button { min-height: 44px; font-size: 13px; padding: 10px 18px; border: 1px solid var(--border); border-radius: 999px; color: var(--foreground); background: var(--card); gap: 8px; flex: none; }
+.mm-platform .category-list button.active { color: var(--background); background: var(--foreground); border-color: transparent; }
+.discovery-browser { display: grid; grid-template-columns: 64px minmax(0,1fr); gap: 28px; align-items: start; }
+.discovery-date-rail { align-self: start; position: sticky; top: 112px; display: flex; flex-direction: column; align-items: center; gap: 20px; color: var(--muted-foreground); }
+.discovery-date-rail > svg { margin-top: 8px; }
+.mm-platform .discovery-date-rail .calendar-days { display: flex; flex-direction: column; gap: 8px; overflow-y: auto; max-height: 65vh; width: 100%; scrollbar-width: none; padding: 0 4px 4px; }
+.mm-platform .discovery-date-rail button { display: flex; flex-direction: column; align-items: center; justify-content: center; border: 0; padding: 12px 4px; min-width: 0; min-height: 80px; gap: 2px; border-radius: 24px; background: transparent; color: var(--muted-foreground); flex: none; }
+.mm-platform .discovery-date-rail button b { font: 700 19px/1.3 var(--font-body),sans-serif; color: var(--foreground); }
+.mm-platform .discovery-date-rail button small { font-size: 12px; line-height: 1.4; }
+.mm-platform .discovery-date-rail button.selected { background: var(--foreground); color: var(--background); }
+.mm-platform .discovery-date-rail button.selected b { color: inherit; }
+.mm-platform .premium-discovery .events-section { margin-top: 0; padding: 0; min-width: 0; }
+.mm-platform .premium-discovery .section-heading { margin: 0 0 24px; gap: 16px; align-items: center; }
+.mm-platform .premium-discovery .section-heading h2 { font-size: 22px; margin: 0; }
+.mm-platform .premium-discovery .section-heading p { font-size: 13px; margin-top: 4px; color: var(--muted-foreground); }
+.mm-platform .premium-discovery .section-tabs { gap: 16px; }
+.mm-platform .premium-discovery .section-tabs :is(button,a) { font-size: 13px; min-height: 44px; display: inline-flex; align-items: center; gap: 8px; }
+.mm-platform .premium-discovery .section-tabs button { padding: 8px 0; }
+.mm-platform .premium-discovery .event-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; }
+.mm-platform .event-card, .mm-platform .premium-discovery .event-card { position: relative; border: 0; padding: 0; border-radius: 24px; overflow: hidden; background: var(--surface); box-shadow: none; height: auto; }
+.mm-platform .event-card .card-image, .mm-platform .premium-discovery .event-card .card-image { position: relative; display: block; aspect-ratio: 4/5; height: auto; border-radius: 24px; overflow: hidden; }
+.mm-platform .event-card .card-image > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: none; opacity: 1; transform: none; transition: transform 240ms ease-out; }
+.mm-platform .event-card .card-shade { position: absolute; inset: 0; background: linear-gradient(180deg,#00000020 0%,transparent 25%,#00000018 40%,#000000db 100%); }
+.mm-platform .event-card .card-price { position: absolute; top: 18px; left: 18px; color: #fff; background: #17181cd9; border-radius: 999px; padding: 7px 12px; font-size: 12px; line-height: 1.5; }
+.mm-platform .event-card .card-content, .mm-platform .premium-discovery .event-card .card-content { position: absolute; bottom: 0; inset-inline: 0; padding: 24px; color: #fff; pointer-events: none; }
+.mm-platform .event-card .card-kind { font-size: 12px; color: #eeeef1; display: block; margin-bottom: 6px; }
+.mm-platform .event-card .card-content h3, .mm-platform .premium-discovery .card-content h3 { font: 750 22px/1.25 var(--font-body),sans-serif; color: #fff; margin: 0 0 10px; letter-spacing: -.025em; }
+.mm-platform .event-card .card-content p { color: #eeeef1; font-size: 13px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0; line-height: 1.5; }
+.mm-platform .event-card .card-bottom, .mm-platform .premium-discovery .event-card .card-bottom { border: 0; padding: 0; margin: 12px 0 0; font-size: 12px; display: flex; justify-content: space-between; gap: 8px; color: #eeeef1; }
+.mm-platform .event-card .save-button { position: absolute; top: 16px; right: 16px; width: 44px; height: 44px; border: 0; border-radius: 50%; background: #17181cbf; color: #fff; backdrop-filter: none; }
+.mm-platform .event-card .save-button.saved { color: #ffb2de; }
+.mm-platform .event-card:hover { transform: none; box-shadow: none; }
+.discovery-close { display: flex; justify-content: space-between; gap: 20px; padding: 32px 0 0 92px; margin-top: 32px; border-top: 1px solid var(--border); }
+.discovery-close a { min-height: 44px; display: flex; align-items: center; gap: 10px; font-size: 14px; }
+/* Details: photograph, overlapping paper, clear purchase section. */
+.mm-platform .event-experience { padding-top: 24px; }
+.mm-platform .detail-cover { width: calc(100% - var(--ui-gutter)*2); max-width: 1280px; margin-inline: auto; height: 460px; min-height: 0; border-radius: 24px; }
+.mm-platform .detail-cover > img { width: 100%; height: 100%; object-fit: cover; object-position: center 45%; filter: none; }
+.mm-platform .detail-cover-shade { background: linear-gradient(#0003,transparent 45%); }
+.detail-overlay-controls { position: absolute; top: 24px; left: 24px; right: 24px; display: flex; justify-content: space-between; }
+.detail-circle { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; color: #fff; background: #17181cbf; }
+.mm-platform .detail-layout { position: relative; grid-template-columns: minmax(0,1fr) 360px; gap: 64px; padding: 40px 40px 64px; margin-top: -36px; width: calc(100% - var(--ui-gutter)*2 - 48px); border-radius: 28px 28px 0 0; background: var(--card); }
+.mm-platform .detail-main { min-width: 0; }
+.mm-platform .detail-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; color: var(--primary); font-size: 12px; }
+.detail-tags > span { display: inline-flex; align-items: center; gap: 6px; }
+.mm-platform .detail-intro h1 { font: 750 clamp(28px,3vw,40px)/1.16 var(--font-body),sans-serif; letter-spacing: -.03em; margin: 0 0 20px; }
+.detail-meta { display: flex; flex-wrap: wrap; gap: 12px 24px; font-size: 13px; }
+.detail-meta > span { display: inline-flex; gap: 8px; align-items: center; }
+.mm-platform .detail-actions { margin: 16px 0 28px; justify-content: space-between; align-items: center; gap: 12px; color: var(--muted-foreground); font-size: 13px; }
+.mm-platform .detail-actions button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 13px; }
+.mm-platform .detail-section { padding: 0 0 28px; margin: 0 0 28px; border-bottom: 1px solid var(--border); }
+.mm-platform .detail-section :is(h2,h3) { font: 750 20px/1.3 var(--font-body),sans-serif; margin: 0 0 16px; }
+.mm-platform .description { font-size: 15px; line-height: 1.75; max-width: 68ch; color: var(--muted-foreground); }
+.event-description-more summary, .detail-rules > summary { min-height: 44px; padding-block: 10px; cursor: pointer; font-weight: 650; }
+.mm-platform .event-facts { gap: 24px; padding-bottom: 28px; margin-bottom: 28px; }
+.mm-platform .event-facts > div { gap: 16px; }
+.mm-platform .event-facts .fact-icon { border: 0; background: var(--surface); border-radius: 50%; width: 48px; height: 48px; color: var(--primary); flex: none; }
+.mm-platform .event-facts strong { font-size: 14px; }
+.mm-platform .event-facts p { font-size: 13px; margin-top: 4px; }
+.mm-platform .organizer-card { padding: 0; border: 0; background: transparent; gap: 16px; }
+.mm-platform .organizer-card strong { font-size: 15px; }
+.mm-platform .booking-panel { position: sticky; top: 104px; border: 0; border-radius: 20px; background: var(--surface); padding: 28px; box-shadow: none; }
+.mm-platform .booking-panel h2 { font: 750 22px/1.3 var(--font-body),sans-serif; }
+.mm-platform .booking-panel > p { font-size: 13px; line-height: 1.6; margin-top: 8px; }
+.mm-platform .tier-list { margin-block: 24px; }
+.mm-platform .tier { padding: 16px; gap: 12px; min-width: 0; border-radius: 14px; background: var(--card); border-color: var(--border); }
+.mm-platform .tier.selected { border-color: var(--foreground); background: var(--card); }
+.mm-platform .tier > div { min-width: 0; }
+.mm-platform .tier input { accent-color: var(--primary); flex: none; }
+.mm-platform .tier strong { font-size: 14px; }
+.mm-platform .tier small { font-size: 12px; line-height: 1.6; }
+.mm-platform .tier > b { font: 700 15px/1.4 var(--font-body),sans-serif; white-space: nowrap; }
+.mm-platform .booking-total strong { font: 750 28px/1.3 var(--font-body),sans-serif; }
+.event-booking-bar { display: none; }
+/* A physical admission pass; QR stays white, private and still. */
+.modal.ticket-modal { background: var(--background); color: var(--foreground); border: 0; border-radius: 28px; padding: 24px; width: 460px; box-shadow: 0 24px 80px #0005; }
+.entry-toolbar { padding-bottom: 16px; }
+.entry-toolbar > button { color: var(--foreground); background: var(--surface); border: 0; }
+.entry-toolbar > h2 { font: 700 19px/1.3 var(--font-body),sans-serif; }
+.ticket-modal > .setup-notice { font-size: 12px; padding: 12px 16px; margin-bottom: 16px; background: var(--surface); color: var(--muted-foreground); }
+.entry-paper { border: 0; border-radius: 24px; box-shadow: none; }
+.entry-art { padding: 0; position: relative; }
+.entry-art > img { height: 250px; width: 100%; object-fit: cover; border-radius: 0; filter: none; }
+.entry-art:after { content: ""; position: absolute; inset: 40% 0 0; background: linear-gradient(transparent,#000c); }
+.entry-brand { left: 20px; top: 20px; font: 700 16px/1.3 var(--font-body),sans-serif; letter-spacing: 0; display: flex; align-items: center; gap: 8px; z-index: 1; }
+.entry-brand .brand-symbol { width: 25px; }
+.entry-brand small { display: none; }
+.entry-event-title { position: absolute; z-index: 1; bottom: 24px; left: 24px; right: 24px; color: #fff; font: 750 25px/1.2 var(--font-body),sans-serif; letter-spacing: -.025em; }
+.entry-paper-content { padding: 24px; }
+.entry-organizer { color: var(--ticket-muted); font-size: 12px; margin: 0 0 20px; text-align: left; }
+.entry-details { gap: 20px 24px; }
+.entry-details .right { text-align: left; }
+.entry-details strong { font: 650 14px/1.5 var(--font-body),sans-serif; }
+.ticket-tear { margin: 24px -24px; border-color: var(--ticket-line); }
+.ticket-tear:before, .ticket-tear:after { background: var(--background); width: 24px; height: 24px; top: -12px; }
+.entry-ticket-qr { padding: 0; margin: 0; background: #fff; border: 0; border-radius: 0; }
+.entry-ticket-qr img { display: block; width: 200px; height: 200px; max-width: 100%; object-fit: contain; margin-inline: auto; padding: 0; background: #fff; transform: none; filter: none; animation: none; }
+.entry-ticket-qr p { font-size: 12px; color: var(--ticket-muted); text-align: center; margin-block: 12px; }
+.entry-expand { min-height: 44px; padding: 10px 16px; border-radius: 999px; background: #f0f0f1; color: var(--ticket-ink); font-size: 13px; }
+.entry-reference { margin-top: 16px; gap: 6px; }
+.entry-reference > span, .entry-reference > code { font-size: 11px; color: var(--ticket-muted); }
+.entry-state { font-size: 12px; letter-spacing: 0; }
+.entry-controls { margin-top: 20px; }
+.entry-reveal { background: var(--foreground); color: var(--background); }
+.entry-demo-note { color: var(--muted-foreground); font-size: 11px; letter-spacing: 0; }
+/* Forms, social and operating surfaces share the same quiet neutral system. */
+.customer-header, .customer-main, .customer-footer { width: calc(100% - var(--ui-gutter)*2); max-width: 1200px; }
+.customer-header { padding-block: 24px; }
+.customer-main { padding-block: 32px 64px; }
+.customer-main h2 { font-size: 22px; margin-block: 28px 16px; }
+.customer-main p { font-size: 14px; }
+.customer-columns { gap: 40px; grid-template-columns: minmax(0,1fr) 320px; }
+.customer-summary { background: var(--card); border: 0; border-radius: 20px; padding: 28px; }
+.customer-summary .button { max-width: 100%; white-space: normal; }
+.customer-cover { border-radius: 24px; }
+.customer-checkout-cover { max-height: 260px; }
+.customer-cover-compact { max-height: 120px; }
+.customer-main .customer-tier { border-radius: 16px; padding: 20px; background: var(--card); border: 1px solid var(--border); margin-block: 12px; }
+.customer-tier:has(input:checked) { outline: 1px solid var(--foreground); }
+.customer-steps { display: flex; gap: 8px; padding: 6px; background: var(--surface); border: 0; border-radius: 14px; margin-block: 28px; }
+.customer-main .customer-steps button { flex: 1; min-height: 44px; padding: 10px 12px; border-radius: 10px; font-size: 13px; color: var(--muted-foreground); }
+.customer-main .customer-steps button[aria-current="step"] { background: var(--foreground); color: var(--background); }
+.customer-main .customer-payment { background: var(--card); border: 0; border-radius: 20px; padding: 24px; margin-top: 28px; }
+.customer-payment h2 { margin-top: 0; }
+.customer-payment-qr { width: 200px; height: 200px; object-fit: contain; padding: 12px; background: white; margin-block: 20px; border-radius: 16px; }
+.customer-payment > .button { margin-block: 8px; }
+.customer-main .customer-booking-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 28px; margin-block: 28px; }
+.customer-main .customer-booking-list > article { display: block; border: 0; border-radius: 24px; overflow: hidden; background: var(--card); padding: 0; }
+.customer-main .customer-booking-list > article > img { width: 100%; height: 240px; object-fit: cover; }
+.customer-main .customer-booking-list > article > div { padding: 24px; }
+.customer-main .customer-booking-list h2 { margin-top: 0; font-size: 22px; }
+.customer-booking-list .button { margin: 12px 8px 0 0; }
+.mm-platform .mm-person { padding: 24px; border: 0; border-radius: 20px; background: var(--card); }
+.mm-platform .mm-person h3 { font-size: 19px; }
+.mm-platform .mm-person-bio { margin-top: 20px; }
+.mm-platform .mm-person-actions .button.primary { background: var(--foreground); color: var(--background); }
+.mm-platform .mm-person .interest-tags > span { border-radius: 999px; background: var(--surface); color: var(--muted-foreground); }
+.mm-platform .mm-social-toolbar { border: 0; padding: 0; }
+.mm-platform .identity-sheet { background: var(--card); border-color: var(--border); box-shadow: none; }
+.mm-platform .identity-cover { background: var(--surface); }
+.mm-platform :is(.panel,.create-section,.form-section,.setup-panel,.ops-panel) { padding: 28px; border: 0; border-radius: 20px; background: var(--card); }
+.mm-platform .metric { background: var(--surface); border: 0; padding: 24px; border-radius: 16px; }
+.mm-platform table :is(th,td) { padding: 16px; font-size: 13px; }
+/* The Lab remains visible, with a compact server-backed actor control. */
+.mm-lab-bar { position: relative; background: var(--surface); color: var(--foreground); border-color: var(--border); gap: 8px 24px; padding: 8px max(20px,calc((100vw - 1280px)/2)); }
+.mm-lab-bar > a { font-size: 13px; min-height: 40px; }
+.mm-lab-bar > a svg { color: var(--primary); }
+.mm-lab-bar select { background: var(--card); color: var(--foreground); border-color: var(--border); border-radius: 999px; font-size: 13px; padding: 8px 30px 8px 14px; }
+.mm-lab-bar > span, .mm-lab-bar small { font-size: 12px; color: var(--muted-foreground); }
+.mm-lab-header { padding-block: 20px; background: var(--background); }
+.mm-lab-warning { background: var(--surface); border: 0; border-radius: 14px; padding: 16px 20px; }
+.mm-lab-heading { margin-bottom: 24px; }
+.mm-lab-heading p { font-size: 14px; }
+.mm-platform .mm-lab-context { background: transparent; border: 0; padding: 24px 0; gap: 16px; }
+.mm-platform .mm-lab-scenario { background: var(--card); border-radius: 16px; padding: 20px 24px; }
+.mm-platform .mm-lab-progress { gap: 12px; margin-block: 24px; }
+.mm-platform .mm-lab-progress li { border: 0; border-radius: 14px; background: var(--surface); padding: 16px; }
+.mm-platform .mm-lab-progress li.done { background: var(--selection); color: var(--primary); }
+.mm-platform .mm-lab-workspace { gap: 28px; }
+.mm-platform .mm-lab-task, .mm-platform .mm-lab-guide { padding: 28px; }
+.mm-platform .mm-lab-task h2, .mm-platform .mm-lab-guide h2 { font-size: 22px; }
+@media (min-width:1200px) {
+  .mm-platform .premium-discovery .event-card:first-child { grid-column: span 2; }
+  .mm-platform .premium-discovery .event-card:first-child .card-image { aspect-ratio: auto; height: 100%; min-height: 400px; }
+  .mm-platform .premium-discovery .event-card:first-child .card-content h3 { font-size: 32px; max-width: 22ch; }
+}
+@media (hover:hover) and (pointer:fine) {
+  .mm-platform .event-card:hover .card-image > img { transform: scale(1.035); }
+  .detail-circle:hover, .mm-platform .event-card .save-button:hover { background: #17181ce8; }
+}
+@media (max-width:1199px) {
+  .mm-platform .premium-discovery .event-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .mm-platform .detail-layout { gap: 32px; grid-template-columns: minmax(0,1fr) 310px; padding: 32px; }
+  .mm-platform .booking-panel { padding: 24px; }
+  .mm-platform .desktop-nav a { padding-inline: 10px; }
+}
+@media (max-width:1023px) {
+  .mm-platform .detail-layout { grid-template-columns: minmax(0,1fr); }
+  .mm-platform .booking-panel { position: static; }
+  .customer-columns { grid-template-columns: minmax(0,1fr); gap: 28px; }
+  .customer-summary { position: static; }
+}
+@media (max-width:767px) {
+  body:has(.mm-platform, .customer-shell) { --ui-gutter: 20px; }
+  .mm-platform .nav-inner { min-height: 72px; gap: 16px; }
+  .mm-platform .topbar .desktop-brand { width: 150px; }
+  .mm-platform .nav-actions { gap: 12px; }
+  .mm-platform .standard-page { padding-block: 28px 48px; }
+  .mm-platform .premium-discovery .mm-discovery { padding-top: 24px; }
+  .discovery-heading { align-items: start; flex-direction: column-reverse; gap: 24px; margin-bottom: 24px; }
+  .discovery-location { width: 100%; padding: 4px 16px; background: var(--card); border: 1px solid var(--border); }
+  .mm-platform .discovery-location select { flex: 1; }
+  .discovery-heading > div > p { font-size: 13px; margin-bottom: 6px; }
+  .mm-platform .discovery-heading h1 { font-size: 28px; line-height: 1.22; max-width: 20ch; }
+  .mm-platform .premium-discovery .search-bar { border-radius: 16px; padding: 6px; }
+  .mm-platform .premium-discovery .search-input { padding-inline: 8px; gap: 8px; }
+  .mm-platform .premium-discovery .search-input input { font-size: 14px; }
+  .mm-platform .premium-discovery .filter-button { padding: 10px; width: 44px; flex: none; }
+  .mm-platform .premium-discovery .filter-button span, .mm-platform .premium-discovery .search-submit { display: none; }
+  .mm-platform .premium-discovery .category-list { margin: 16px 0 24px; }
+  .mm-platform .category-list button { padding: 10px 16px; font-size: 12px; }
+  .discovery-browser { grid-template-columns: 44px minmax(0,1fr); gap: 16px; }
+  .discovery-date-rail { top: 88px; gap: 12px; }
+  .mm-platform .discovery-date-rail .calendar-days { padding-inline: 0; max-height: 60vh; }
+  .mm-platform .discovery-date-rail button { padding: 12px 2px; min-height: 76px; border-radius: 22px; }
+  .mm-platform .discovery-date-rail button small { font-size: 11px; }
+  .mm-platform .discovery-date-rail button b { font-size: 18px; }
+  .mm-platform .premium-discovery .section-heading { margin-bottom: 16px; align-items: start; flex-direction: column; gap: 4px; }
+  .mm-platform .premium-discovery .section-heading h2 { font-size: 19px; }
+  .mm-platform .premium-discovery .section-heading p { display: none; }
+  .mm-platform .premium-discovery .section-tabs { gap: 16px; flex-wrap: wrap; }
+  .mm-platform .premium-discovery .section-tabs :is(a,button) { font-size: 12px; min-height: 40px; }
+  .mm-platform .premium-discovery .section-tabs a span { display: none; }
+  .mm-platform .premium-discovery .event-grid { grid-template-columns: minmax(0,1fr); gap: 20px; }
+  .mm-platform .event-card .card-image, .mm-platform .premium-discovery .event-card .card-image { aspect-ratio: 4/5; border-radius: 22px; }
+  .mm-platform .event-card .card-content, .mm-platform .premium-discovery .event-card .card-content { padding: 20px; }
+  .mm-platform .event-card .card-content h3, .mm-platform .premium-discovery .card-content h3 { font-size: 21px; margin-bottom: 8px; }
+  .mm-platform .event-card .card-price { left: 16px; top: 16px; font-size: 12px; padding: 6px 10px; }
+  .mm-platform .event-card .save-button { right: 12px; top: 12px; }
+  .mm-platform .event-card .card-content p { font-size: 12px; }
+  .mm-platform .event-card .card-kind { font-size: 11px; }
+  .mm-platform .event-card .card-bottom, .mm-platform .premium-discovery .event-card .card-bottom { margin-top: 12px; font-size: 11px; }
+  .discovery-close { padding: 24px 0 0; margin-top: 28px; flex-wrap: wrap; gap: 8px 24px; }
+  .mm-platform .bottom-nav { position: fixed; bottom: max(12px,env(safe-area-inset-bottom)); left: 20px; right: 20px; width: auto; border-radius: 999px; padding: 6px; gap: 2px; border: 1px solid var(--border); background: var(--card); box-shadow: 0 6px 24px #00000012; }
+  .mm-platform .bottom-nav a { border-radius: 999px; min-height: 48px; font-size: 10px; }
+  .mm-platform .bottom-nav a.active { background: var(--foreground); color: var(--background); }
+  .mm-platform .bottom-nav a.active:before { display: none; }
+  .mm-platform footer { padding-bottom: 112px; margin-top: 28px; }
+  .mm-platform .event-experience { padding-top: 0; }
+  .mm-platform .detail-cover { width: 100%; border-radius: 0; height: 360px; min-height: 0; }
+  .detail-overlay-controls { inset: 20px 20px auto; }
+  .mm-platform .detail-layout { width: 100%; margin-top: -28px; padding: 28px 20px 48px; border-radius: 28px 28px 0 0; gap: 28px; }
+  .mm-platform .detail-intro h1 { font-size: 28px; margin-bottom: 16px; }
+  .mm-platform .detail-meta { font-size: 12px; gap: 12px 16px; }
+  .mm-platform .detail-actions { margin-bottom: 24px; }
+  .mm-platform .description { font-size: 14px; }
+  .mm-platform .detail-section :is(h2,h3) { font-size: 19px; }
+  .mm-platform .booking-panel { padding: 24px 20px; }
+  .mm-platform .tier { padding: 16px 12px; }
+  .event-booking-bar { position: fixed; display: flex; z-index: 55; bottom: 0; inset-inline: 0; align-items: center; justify-content: space-between; gap: 20px; background: var(--card); border-top: 1px solid var(--border); padding: 16px 20px max(16px,env(safe-area-inset-bottom)); }
+  .event-booking-bar small { display: block; font-size: 12px; color: var(--muted-foreground); }
+  .event-booking-bar strong { display: block; font: 750 25px/1.2 var(--font-body),sans-serif; }
+  .event-booking-bar .button { border-radius: 999px; }
+  .mm-route-events .bottom-nav { display: none; }
+  .customer-header { padding-block: 20px; flex-wrap: wrap; gap: 16px; }
+  .customer-header nav { gap: 12px; }
+  .customer-header .brand-logo { width: 150px; }
+  .customer-main { padding-block: 24px 48px; }
+  .customer-main h1 { font-size: 28px; }
+  .customer-main h2 { font-size: 21px; }
+  .customer-main .customer-tier, .customer-summary, .customer-main .customer-payment { padding: 20px; }
+  .customer-main .customer-steps button { padding-inline: 6px; font-size: 12px; }
+  .customer-main .customer-booking-list { grid-template-columns: minmax(0,1fr); }
+  .customer-main .customer-booking-list > article > div { padding: 20px; }
+  .customer-booking-list .button { max-width: 100%; white-space: normal; }
+  .mm-platform .mm-social-toolbar .page-tabs { display: flex; width: 100%; overflow-x: auto; background: transparent; padding: 0 0 8px; gap: 4px; }
+  .mm-platform .mm-social-toolbar .page-tabs button { padding-inline: 14px; flex: none; border-radius: 999px; font-size: 13px; }
+  .mm-platform :is(.panel,.create-section,.form-section,.setup-panel,.ops-panel,.mm-lab-task,.mm-lab-guide) { padding: 20px; }
+  .mm-lab-bar { gap: 4px 12px; padding: 8px 20px; display: grid; grid-template-columns: 1fr auto; }
+  .mm-lab-bar > span { grid-row: 2; grid-column: 1 / -1; font-size: 11px; }
+  .mm-lab-bar > small { display: none; }
+  .mm-lab-bar label { font-size: 0; gap: 0; }
+  .mm-lab-bar select { width: 160px; min-height: 40px; }
+  .mm-lab-warning { padding: 16px; font-size: 13px; }
+  .mm-platform .mm-lab-context { display: flex; flex-wrap: wrap; }
+  .mm-lab-context > div { width: 100%; }
+  .mm-platform .mm-lab-scenario { padding: 20px; }
+  .mm-platform .mm-lab-progress { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+  .mm-platform .mm-lab-progress li { padding: 14px; }
+  .mm-platform .mm-lab .button { max-width: 100%; white-space: normal; }
+  .modal.ticket-modal { padding: 20px; border-radius: 24px 24px 0 0; }
+  .entry-art > img { height: 220px; }
+  .entry-event-title { font-size: 23px; left: 20px; right: 20px; bottom: 20px; }
+  .entry-paper-content { padding: 24px 20px; }
+  .ticket-tear { margin-inline: -20px; }
+}
+@media (max-width:360px) {
+  body:has(.mm-platform, .customer-shell) { --ui-gutter: 16px; }
+  .mm-platform .nav-inner { width: calc(100% - 32px); }
+  .mm-lab-bar { padding-inline: 16px; }
+  .mm-lab-bar select { width: 152px; }
+  .discovery-browser { gap: 12px; }
+  .mm-platform .event-card .card-content, .mm-platform .premium-discovery .event-card .card-content { padding: 16px; }
+  .mm-platform .event-card .card-content h3, .mm-platform .premium-discovery .card-content h3 { font-size: 18px; }
+  .mm-platform .event-card .card-price { left: 12px; top: 12px; font-size: 11px; }
+  .mm-platform .event-card .save-button { width: 40px; height: 40px; right: 8px; top: 8px; }
+  .mm-platform .detail-layout { padding-inline: 16px; }
+  .event-booking-bar { padding-inline: 16px; gap: 12px; }
+  .event-booking-bar .button { padding-inline: 16px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .mm-platform *, .customer-shell * { scroll-behavior: auto; }
+  .mm-platform .event-card .card-image > img { transition: none; }
+  .mm-platform .event-card:hover .card-image > img { transform: none; }
+}
+/* Resolve legacy mobile reordering and photographic framing at the component boundary. */
+.mm-platform .detail-main { display: block; }
+.mm-platform .detail-main > .detail-section:first-of-type { padding-bottom: 28px; margin-bottom: 28px; border-bottom: 1px solid var(--border); }
+.mm-platform .event-facts { background: transparent; border-radius: 0; padding: 0 0 28px; margin: 0 0 28px; }
+.mm-platform .organizer-card p { font-size: 13px; }
+.mm-platform .detail-rules .rules-list p { font-size: 14px; }
+.mm-platform .booking-demo { font-size: 11px; letter-spacing: 0; }
+.mm-platform .premium-discovery .section-tabs button.active { color: var(--foreground); border-color: var(--foreground); }
+.mm-platform .premium-discovery .search-input input::placeholder { color: var(--muted-foreground); }
+.mm-platform .mm-skip:not(:focus) { top: -100px; visibility: hidden; }
+.mm-platform .mm-skip:focus { top: 8px; visibility: visible; }
+@media (max-width:767px) {
+  .mm-platform .detail-layout { display: grid; }
+  .mm-platform .detail-main .description { font-size: 14px; }
+}
+/* Keep the full first event readable in the initial phone viewport. */
+.mm-platform .premium-discovery .search-bar { min-height: 0; height: auto; }
+.mm-platform .premium-discovery .search-input { min-height: 44px; }
+.mm-platform .premium-discovery .section-tabs a { width: auto; height: auto; border: 0; border-radius: 999px; padding: 8px 12px; white-space: nowrap; color: var(--foreground); }
+.mm-platform .premium-discovery .section-tabs button { color: var(--muted-foreground); }
+.mm-platform .premium-discovery .section-tabs button.active { color: var(--foreground); }
+.mm-platform .profile-page { background: var(--background); padding-top: 32px; }
+.mm-platform .identity-sheet { max-width: 960px; border: 0; border-radius: 24px; }
+.mm-platform .identity-art { height: 200px; }
+.mm-platform .identity-art > img { opacity: 1; }
+.mm-platform .identity-art-shade { background: linear-gradient(transparent 55%,var(--card)); }
+.mm-platform .identity-information { padding: 150px 32px 32px; }
+.mm-platform .identity-portrait { width: 104px; height: 104px; border: 5px solid var(--card); }
+.mm-platform .identity-portrait > .avatar { width: 100% !important; height: 100% !important; border: 0; }
+.mm-platform .identity-information h1 { margin-top: 16px; }
+.mm-platform .identity-stats { background: transparent; border: 0; padding: 0; margin-block: 24px; box-shadow: none; }
+.mm-platform .identity-stats strong { font: 700 22px/1.3 var(--font-body),sans-serif; color: var(--foreground); }
+.mm-platform .identity-stats button { font-size: 12px; padding: 12px 20px; }
+.mm-platform .identity-links :is(a,button) { font-size: 12px; text-transform: none; }
+.mm-platform .identity-overlap { box-shadow: none; }
+.mm-platform .identity-overlap > span { box-shadow: none; }
+.mm-platform .identity-round { backdrop-filter: none; background: #17181cbf; color: white; border: 0; }
+.mm-platform .identity-emblems { background: var(--card); }
+.mm-platform .identity-emblems .identity-badge > span { border: 0; color: var(--muted-foreground); }
+@media (min-width:1200px) {
+  .mm-platform .premium-discovery .event-card:first-child .card-image { min-height: 380px; }
+  .mm-platform .premium-discovery .event-grid { grid-auto-rows: 380px; }
+  .mm-platform .premium-discovery .event-card .card-image { height: 100%; aspect-ratio: auto; }
+}
+@media (max-width:767px) {
+  .mm-platform .nav-inner { min-height: 64px; }
+  .mm-platform .premium-discovery .mm-discovery { padding-top: 16px; }
+  .discovery-heading { gap: 16px; margin-bottom: 16px; }
+  .discovery-heading > div > p { display: none; }
+  .discovery-location { min-height: 44px; padding-block: 0; }
+  .mm-platform .discovery-location select { padding-block: 8px; }
+  .mm-platform .discovery-heading h1 { font-size: 26px; }
+  .mm-platform .premium-discovery .search-bar { height: 58px; }
+  .mm-platform .premium-discovery .category-list { margin-block: 16px; border: 0; padding-bottom: 0; }
+  .mm-platform .premium-discovery .section-heading { gap: 4px; margin-bottom: 12px; }
+  .mm-platform .premium-discovery .section-heading h2 { margin: 0; line-height: 1.3; }
+  .mm-platform .premium-discovery .section-tabs { margin: 0; }
+  .mm-platform .premium-discovery .section-tabs a { min-height: 40px; width: 40px; padding: 8px; }
+  .mm-platform .profile-page { padding-top: 20px; }
+  .mm-platform .identity-art { height: 160px; }
+  .mm-platform .identity-information { padding: 112px 20px 24px; }
+  .mm-platform .identity-information h1 { font-size: 26px; }
+  .mm-platform .identity-topline { top: 20px; left: 20px; right: 20px; }
+  .mm-platform .identity-emblems { padding-block: 20px; }
+  body:has(.profile-route .identity-sheet) .mm-platform .bottom-nav { bottom: max(12px,env(safe-area-inset-bottom)); left: 20px; right: 20px; width: auto; border-radius: 999px; padding: 6px; background: var(--card); border: 1px solid var(--border); box-shadow: 0 6px 24px #00000012; }
+}
+/* Finish review: component boundaries override earlier, more-specific legacy rules. */
+:is(.mm-platform,.customer-shell) .modal.ticket-modal { background: var(--background); color: var(--foreground); border-radius: 24px; border: 0; box-shadow: 0 24px 80px #0005; overflow-y: auto; overscroll-behavior: contain; }
+:is(.mm-platform,.customer-shell) .entry-paper .entry-event-title { color: #fff; font: 750 25px/1.2 var(--font-body),sans-serif; margin: 0; text-align: left; }
+:is(.mm-platform,.customer-shell) .entry-art > img { border-radius: 0; }
+:is(.mm-platform,.customer-shell) .entry-toolbar > button { color: var(--foreground); background: var(--surface); }
+:is(.mm-platform,.customer-shell) .entry-toolbar > h2 { color: var(--foreground); }
+:is(.mm-platform,.customer-shell) .entry-details > div.right { text-align: left; }
+.customer-main .customer-event-details { padding: 12px 20px; border: 0; border-radius: 14px; background: var(--card); }
+.customer-main .customer-event-details summary { padding: 4px 0; }
+.mm-platform .identity-portrait { border-radius: 50%; }
+.mm-platform .tickets-page .t-tabs-pill { background: var(--foreground); }
+.mm-platform .tickets-page .motion-tabs button[aria-selected="true"] { color: var(--background); }
+.mm-platform .ticket-art .mini-pill { background: #17181cd9; color: #fff; border: 0; font-size: 12px; }
+.mm-platform .ticket-art h2 { font: 750 25px/1.2 var(--font-body),sans-serif; color: #fff; }
+.mm-platform .ticket-preview { border: 0; border-radius: 24px; }
+.mm-platform .mm-route-admin .button, .mm-route-admin .button { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+@media (max-width:767px) {
+  :is(.mm-platform,.customer-shell) .modal.ticket-modal { border-radius: 24px 24px 0 0; }
+  :is(.mm-platform,.customer-shell) .entry-paper .entry-event-title { font-size: 23px; }
+}
+.mm-platform .ticket-art > img { opacity: 1; filter: none; }
+.mm-platform .ticket-art:after { background: linear-gradient(180deg,transparent 20%,#00000018 45%,#000000db 100%); }

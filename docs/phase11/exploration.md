@@ -1,0 +1,3 @@
+# Phase11 exploratory attempts
+
+Accepted final evidence is linked from FINAL_SECURITY_AND_QA.md. Two browser harness failures were investigated: asynchronous ticket-dialog image timing (explicit visible-image wait fixed) and an unmoderated new public fixture (server correctly returned404; new explicitly fictional approved fixture passes). Failed fixtures/history and raw logs remain private; no product gate/test was weakened or reset. Canonical E2E refusal is intentional security acceptance. Existing Prisma config deprecation and NO_COLOR warning are disclosed. All final required executed checks pass. Physical/provider/live acceptance is not invented.

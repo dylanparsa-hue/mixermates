@@ -1,0 +1,24 @@
+{
+  "original_symbol_canvas": [
+    3000,
+    3000
+  ],
+  "visible_bounds": [
+    755,
+    833,
+    2245,
+    1705
+  ],
+  "symbol_visual_center": [
+    1500.0,
+    1269.0
+  ],
+  "source_png_has_alpha": true,
+  "source_jpg_has_alpha": false,
+  "production_format": "Transparent optimized PNG; source geometry and glyphs preserved",
+  "palette": {
+    "purple": "#532FEA",
+    "violet": "#9E1FF0",
+    "pink": "#ED07FB"
+  }
+}

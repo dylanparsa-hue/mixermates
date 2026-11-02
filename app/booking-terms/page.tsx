@@ -1,0 +1,3 @@
+import Link from "next/link";
+import { paymentDisclosure } from "@/lib/event-config";
+export default function BookingTerms(){return <main className="page-width standard-page"><Link href="/">MixerMates home</Link><h1>Booking information</h1><p>{paymentDisclosure}</p><p>Each event lists its entry rules and cancellation policy. Existing bookings retain the terms recorded at registration.</p><p>Approved platform Booking Terms have not been supplied. This page is information only; it is not a final legal policy. Real ticket sales remain disabled.</p><Link href="/my-bookings">View terms saved with my bookings</Link></main>;}

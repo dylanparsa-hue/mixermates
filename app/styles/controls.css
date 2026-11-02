@@ -1,0 +1,434 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.row.wrap,
+.wrap {
+  flex-wrap: wrap;
+}
+.between {
+  justify-content: space-between;
+}
+.flex-one {
+  flex: 1;
+}
+.mt {
+  margin-top: 22px;
+}
+.muted {
+  color: var(--muted-foreground);
+}
+.small {
+  font-size: 11px;
+}
+.purple {
+  color: var(--accent);
+}
+.danger {
+  color: var(--accent) !important;
+}
+.subtle {
+  color: var(--muted-foreground) !important;
+}
+.text-button {
+  font-size: 11px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--primary);
+  padding: 4px 0;
+}
+.text-button:hover {
+  color: var(--primary);
+}
+.loading {
+  min-height: 45vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+  color: var(--muted-foreground);
+}
+.loading p {
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+.spin {
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.empty {
+  padding: 65px 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.empty > svg {
+  color: var(--muted-foreground);
+}
+.empty h2 {
+  font-size: 26px;
+  font-weight: 500;
+}
+.empty p {
+  color: var(--muted-foreground);
+  font-size: 12px;
+  max-width: 430px;
+}
+.empty .button {
+  margin-top: 6px;
+}
+.skeleton {
+  height: 360px;
+  border-radius: 13px;
+  background: linear-gradient(100deg, var(--surface) 20%, var(--surface) 50%, var(--surface) 80%);
+  background-size: 200%;
+  animation: shimmer 2s infinite;
+}
+@keyframes shimmer {
+  to {
+    background-position: -200%;
+  }
+}
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: color-mix(in srgb, var(--background) 75%, transparent);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  overflow: auto;
+  animation: fade-in 0.2s ease;
+}
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 19px;
+  padding: 30px;
+  width: 530px;
+  max-width: 100%;
+  max-height: calc(100dvh - 50px);
+  overflow-y: auto;
+  box-shadow: 0 30px 120px color-mix(in srgb, var(--shadow) 60%, transparent);
+  scrollbar-width: thin;
+}
+.modal.wide {
+  width: 800px;
+}
+.modal-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+.modal-head .eyebrow {
+  font-size: 7px;
+  letter-spacing: 1.2px;
+}
+.modal-head h2 {
+  font-size: 29px;
+  font-weight: 500;
+  margin-top: 11px;
+  line-height: 1.1;
+}
+.modal-head .icon-button {
+  margin-top: -7px;
+  margin-right: -10px;
+}
+.modal > p {
+  font-size: 12px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 24px;
+}
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--muted-foreground);
+  font-size: 11px;
+  line-height: 1.6;
+}
+.form input:not([type="checkbox"]):not([type="file"]):not([type="radio"]),
+.form select,
+.form textarea,
+.event-selector select,
+.map-list > select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 13px 12px;
+  color: var(--primary);
+  width: 100%;
+  outline-offset: 2px;
+  font-size: 12px;
+}
+.form input::placeholder,
+.form textarea::placeholder {
+  color: var(--muted-foreground);
+}
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+  border-color: var(--border);
+  outline: 1px solid var(--brand-purple);
+}
+.form textarea {
+  min-height: 115px;
+  resize: vertical;
+}
+.form label small {
+  font-size: 9px;
+  color: var(--muted-foreground);
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.form h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+.checkbox,
+.form label.checkbox {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+  line-height: 1.5;
+  font-size: 10px;
+  color: var(--muted-foreground);
+  cursor: pointer;
+}
+.checkbox input {
+  accent-color: var(--accent);
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  flex-shrink: 0;
+}
+.alert {
+  padding: 15px;
+  background: color-mix(in srgb, var(--foreground) 4%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.alert svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.alert p {
+  margin-top: 3px;
+  font-size: 11px;
+}
+.alert small {
+  display: block;
+}
+.alert.error {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--brand-pink) 5%, transparent);
+  border-color: var(--border);
+}
+.auth-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  font-size: 10px;
+  color: var(--muted-foreground);
+}
+.auth-links button {
+  padding: 0;
+  color: var(--primary);
+  font-size: 10px;
+}
+.demo-auth {
+  border-top: 1px solid var(--border);
+  margin-top: 28px;
+  padding-top: 22px;
+}
+.demo-auth > .eyebrow {
+  font-size: 7px;
+  letter-spacing: 1px;
+}
+.demo-buttons {
+  display: flex;
+  gap: 8px;
+  margin: 14px 0;
+}
+.demo-buttons button {
+  font-size: 9px;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--foreground) 4%, transparent);
+  padding: 9px 11px;
+  border-radius: 6px;
+  flex: 1;
+  justify-content: center;
+}
+.demo-auth > small {
+  font-size: 8px;
+  color: var(--muted-foreground);
+}
+.demo-entry {
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 25px;
+  margin: 30px auto;
+  max-width: 650px;
+}
+.demo-entry h3 {
+  font-size: 23px;
+  margin: 13px 0 20px;
+  font-weight: 500;
+}
+.demo-entry > .row {
+  justify-content: center;
+}
+.demo-entry .button {
+  text-transform: capitalize;
+}
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  z-index: 200;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 60px color-mix(in srgb, var(--shadow) 67%, transparent);
+  border-radius: 12px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--primary);
+  max-width: calc(100% - 30px);
+  animation: fade-in 0.2s;
+}
+.toast > svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.toast button {
+  padding: 0;
+  margin-left: 14px;
+  color: var(--muted-foreground);
+  display: flex;
+}
+.notification-pop {
+  position: absolute;
+  top: 75px;
+  right: 5%;
+  width: 380px;
+  max-height: 70vh;
+  overflow: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 22px;
+  z-index: 80;
+  box-shadow: 0 20px 60px color-mix(in srgb, var(--shadow) 60%, transparent);
+}
+.notification-pop h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+.notification-pop .text-button {
+  font-size: 9px;
+}
+.notification {
+  display: flex;
+  gap: 10px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+.notification strong {
+  font-size: 12px;
+  font-weight: 500;
+}
+.notification p {
+  font-size: 11px;
+  color: var(--muted-foreground);
+  margin-top: 6px;
+}
+.notification small {
+  font-size: 9px;
+  color: var(--muted-foreground);
+  display: block;
+  margin-top: 9px;
+}
+.notification-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+.notification.read {
+  opacity: 0.55;
+}
+.notification.read .notification-dot {
+  background: var(--muted-foreground);
+}
+.status {
+  font-size: 8px;
+  border-radius: 5px;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  color: var(--muted-foreground);
+  background: color-mix(in srgb, var(--brand-pink) 4%, transparent);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+.status i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.status.green {
+  color: var(--muted-foreground);
+  background: color-mix(in srgb, var(--muted-foreground) 4%, transparent);
+  border-color: var(--border);
+}
+.status.red {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--muted-foreground) 4%, transparent);
+  border-color: var(--border);
+}

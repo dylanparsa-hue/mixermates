@@ -1,0 +1,2 @@
+ALTER TABLE "FileUpload" ADD COLUMN "data" BLOB;
+ALTER TABLE "FileUpload" ADD COLUMN "mime" TEXT;

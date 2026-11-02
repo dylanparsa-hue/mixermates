@@ -1,0 +1,40 @@
+@import "./styles/customer-booking.css";
+@import "./styles/event-setup.css";
+@import "maplibre-gl/dist/maplibre-gl.css";
+@import "./styles/base.css";
+@import "./styles/discovery.css";
+@import "./styles/controls.css";
+@import "./styles/events-tickets.css";
+@import "./styles/community-map.css";
+@import "./styles/studio.css";
+@import "./styles/responsive.css";
+@import "./styles/profile-reference.css";
+@import "./styles/mobile-first.css";
+@import "./styles/entry-ticket.css";
+
+@import "./styles/transitions.css";
+@import "./styles/premium.css";
+
+@import "./styles/brand-theme.css";
+
+@import "./styles/coming-soon.css";
+
+@import "./styles/entrance.css";
+
+@import "./styles/operations.css";
+@import "./styles/mixermates-ui.css";
+
+@import "./styles/ui-correction.css";
+
+@import "./styles/premium-app.css";
+
+@import "./styles/cinematic-app.css";
+
+@import "./styles/event-creator.css";
+@import "./styles/event-designer.css";
+
+/* Authentication uses the same task-surface tokens in both appearances. */
+.google-login { display: grid; gap: .75rem; margin-block: 1rem; }
+.google-login > p { max-width: 48ch; font-size: .875rem; line-height: 1.5; }
+.profile-appearance .google-login { max-width: 30rem; }
+

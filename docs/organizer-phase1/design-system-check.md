@@ -1,0 +1,33 @@
+# Organizer Phase 1 design-system check
+
+The implemented creator is a precise extension of the current cinematic task UI. It introduces no visual world, palette, font family or system token. This check records source and supplied local evidence; it does not establish owner visual acceptance or authorize release.
+
+## Evidence checked
+
+Compared `components/create-event.tsx`, `components/organizer.tsx` and `app/styles/event-creator.css` with the current `DESIGN.md`, `.impeccable/design.json`, `PRODUCT.md`, prior organizer surface brief and `docs/organizer-phase1/DESIGN_CONTRACT.md`. Supporting source inspection covered `lib/organizer-identity.ts`, `lib/organizer-public-profile.ts` and private snapshot handling in `lib/event-workspace.ts`.
+
+Viewed all 14 existing PNGs in `docs/organizer-phase1/screenshots/`: creator Details, Tickets and Preview in mobile/desktop Light/Dark (12), mobile Dark Details errors (1), and desktop Light Studio Tickets (1). The creator captures are 390px and 1440px wide. `browser-results.json` reports no horizontal overflow in all 14 checks, no page errors, preserved account identity and independent review. Solid-color poster/banner files are deliberate upload fixtures, not new brand materials. The floating bottom navigation's position in full-page captures does not represent a separate in-flow form element.
+
+Supplemental inspection covered all 12 PNGs in `docs/organizer-phase1/studio-screenshots/`: My events, Settings and selected-event Tickets, each at 390px and 1440px in Light and Dark. `studio-results.json` reports no horizontal overflow in every capture and no page errors. These extend the earlier desktop Light Studio evidence to the complete device/theme matrix for those three Studio views. They preserve the same semantic task surfaces, typography, four primary destinations, responsive action wrapping and automatic organizer-link presentation. This coverage does not establish a visual matrix for every other contextual tool.
+
+`accessibility-results.json` records five passing checks covering labels, inline described errors, invalid states, keyboard focus, focused-field viewport recovery and server paid-readiness errors opening the relevant step and focusing its described field. `account-entry-results.json` records a normal fresh customer signup followed by the header Create Event action: the wizard retains the same user and role, creates one organizer identity, creates no subscription and uses no separate organizer form. `design-review.md` records the inline-error association fix resolved with `disposition: ship` for the scored fix. That verdict is scoped to the fix; the screenshots retain the composition and do not themselves prove ARIA semantics. A screen-reader run was not performed. This documentation pass performed no browser actions or new application test run; it inspected the supplied supplemental results and captures.
+
+## Extension consistency
+
+| Area | Observed extension and consistency |
+| --- | --- |
+| Theme and materials | Creator CSS consumes inherited semantic surface, elevated surface, border, text, muted text and accent roles. Dark charcoal and warm neutral Light task panels match the current system. Original logo, shared shell and cinematic footer stay recognizable. |
+| Typography | Archivo page/preview titles and Manrope step headings, labels and operating copy preserve the established two-font division. No legacy lavender/Oxanium identity was reintroduced. |
+| Layout | The centered 1000px creator, horizontal three-part progress and single active screen implement the owner contract. Desktop paired fields and image columns become one column at the existing 767px phone breakpoint. Compact corners and quiet tonal surfaces extend the existing task vocabulary. |
+| Progress and feedback | Details → Tickets → Photos, Preview & Submit replaces seven-step onboarding. Future steps are disabled, validation focuses the first invalid field, optional fields live in named disclosures, and Save Draft/Back/Next/review submission remain explicit. Controls use visible labels, native disabled states, visible focus and 48px main field/action heights. |
+| Artwork and preview | Portrait poster and optional wide banner remain independent. Current draft data populates the preview; safe location wording and private-draft text preserve the distinction between an owner preview and an eligible public event. |
+| Identity and Studio | Free creation capability uses the same account. Automatic organizer identity and stable link generation remove profile/URL setup from creation. The four primary Studio tasks remain My events, Payments, Scanner and Settings; selected-event links expose contextual tools. Studio figures describe permitted records and disabled real sales. |
+| State and motion | Save/unsaved/pending/locked feedback is state-based; unfinished snapshots remain private. The only creator motion added is a pending spinner, disabled under reduced motion. No decorative campaign animation was added to the form. |
+
+## Historical drift and documentation scope
+
+The old `.impeccable/surfaces/organizer-setup.md` described Phase 3's seven steps, lavender/navy palette and Oxanium. Those instructions conflicted with both the already established cinematic system and the current three-step contract. This pass replaces that surface strategy with the actual targets, responsive behavior and constraints. The previous subscription paragraph in `PRODUCT.md` remains as history; a subsequent Phase 1 entry explicitly supersedes any paid-plan requirement for event creation. Free creation does not activate billing or remove review, verification, publication or sales controls.
+
+The root `DESIGN.md` and sidecar predate this extension and carry historical implementation/scope language, including a cascade description that names `cinematic-app.css` as the final application layer. `app/globals.css` now imports the scoped `event-creator.css` after that layer. This is recorded drift, not authority to rewrite the global design system. The inherited token vocabulary remains applicable. Neither root design file nor the sidecar was changed, regenerated or given new component primitives by this pass.
+
+Only this check, the organizer surface brief and the appended product truth were written. Phase 1 remains local implementation and isolated fictional QA. No Phase 2 fee change, production access/deployment/upload, public release, real payment, paid subscription activation, real ticket sale/admission or external message is authorized by this work. Existing review, privacy and protected-environment controls remain authoritative. Technical checks and the scoped finish disposition do not constitute owner visual acceptance.

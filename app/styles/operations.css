@@ -1,0 +1,24 @@
+.operations { min-width: 0; }
+.operations h2, .operations h3 { text-wrap: balance; }
+.operations p, .operations strong, .operations a { overflow-wrap: anywhere; }
+.operations form { max-width: 48rem; display: grid; gap: 1rem; margin-block: 1.5rem; }
+.operations label { display: grid; gap: .5rem; }
+.operations input:not([type=checkbox]), .operations select, .operations textarea { width: 100%; min-height: 44px; font: inherit; padding: .7rem; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--foreground); }
+.operations textarea { min-height: 100px; resize: vertical; }
+.operations .setup-check { display: flex; align-items: center; min-height: 44px; }
+.operations button, .operations .button, .operations summary { min-height: 44px; touch-action: manipulation; }
+.operations summary { cursor: pointer; padding-block: .7rem; }
+.operations :focus-visible { outline: 3px solid var(--brand-purple); outline-offset: 3px; }
+.ops-record { border-block-end: 1px solid var(--border); padding-block: 1.5rem; min-width: 0; }
+.ops-record p { max-width: 75ch; }
+.operations dd { font-variant-numeric: tabular-nums; }
+.operations .setup-actions { align-items: end; }
+.operations .setup-actions label { min-width: 140px; flex: 1; }
+@media(max-width:600px) { .operations .setup-actions { align-items: stretch; } .operations .setup-actions > * { flex-basis: 100%; } }
+
+.operations pre { max-width:100%; white-space:pre-wrap; overflow-wrap:anywhere; font-size:.875rem; }
+.operations details { margin-block:1.5rem; }
+
+.ops-value { display:grid; grid-template-columns:minmax(8rem,1fr) minmax(0,2fr); gap:1rem; padding-block:.6rem; border-block-end:1px solid var(--border); }
+.ops-value dd { margin:0; overflow-wrap:anywhere; }
+@media(max-width:480px){.ops-value {grid-template-columns:1fr;gap:.25rem;}}

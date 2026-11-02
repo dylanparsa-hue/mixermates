@@ -1,0 +1,18 @@
+import { db } from '../lib/db';
+import { redeemInvitation } from '../lib/invitations';
+import { reserveBooking,approveRegistration,issueTickets } from '../lib/booking-domain';
+import { submitPaymentEvidence,reviewPayment } from '../lib/payment-foundation';
+import {setEventStaff} from '../lib/staff-permissions';
+import {readFile,writeFile} from 'node:fs/promises';
+if(process.env.NODE_ENV==='production' || process.env.DB_PASSWORD!==undefined || !process.env.DATABASE_URL?.includes('mixermates-phase5-20261026/preview/') || process.env.ISOLATED_TEST_DATA!=='true')throw Error('Isolated fixture only');
+const fixture=JSON.parse(await readFile('.local/phase4-fixture.json','utf8'));
+await redeemInvitation('attendee',fixture.eventId,new URLSearchParams(new URL(fixture.link).hash.slice(1)).get('invite')!);
+await db.eventTicketTier.update({where:{id:'p4-fixture-general'},data:{maxPerOrder:2}});
+const b=await reserveBooking('attendee',{eventId:fixture.eventId,tierId:'p4-fixture-general',quantity:2,entryKey:'fee',answers:{'p4-name':'Alex Fictional Morgan','p4-age':'28','p4-instagram':'fictional_alex','p4-entry':'Entrance Fee — RM35'},idempotencyKey:crypto.randomUUID(),expiresAt:new Date(Date.now()+3600000)});
+const f=await db.fileUpload.create({data:{userId:'attendee',private:true,mime:'image/png',path:'p5-rehearsal-proof',data:await readFile('docs/phase4/fixtures/fictional-receipt.png')}});
+const evidence=await submitPaymentEvidence('attendee',b.id,f.id);
+await reviewPayment('organizer',b.id,{evidenceId:evidence.id,decision:'CONFIRMED',fundsVerified:true,receivedAmount:7000,notes:'Fictional software rehearsal only, no actual funds.'});
+await approveRegistration('organizer',b.id,true);await issueTickets('organizer',b.id);
+await setEventStaff('organizer',{eventId:fixture.eventId,userId:'staff',active:true,canCheckIn:true,canViewGuests:true});
+await writeFile('.local/phase5-fixture.json',JSON.stringify({eventId:fixture.eventId,bookingId:b.id,tickets:await db.ticket.findMany({where:{bookingId:b.id},select:{id:true,token:true}})}),{mode:0o600});
+console.log('Prepared two owned fictional tickets through evidence, funds and independent registration approval.');await db.$disconnect();

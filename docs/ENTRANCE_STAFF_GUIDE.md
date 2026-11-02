@@ -1,0 +1,14 @@
+# Entrance staff guide
+
+Phase 11 · fictional localhost rehearsal only. Physical phone, Safari, lighting, ID and venue-network acceptance still need verification. A desktop QR decode does not certify a real door.
+
+1. Sign in at `/organizer/login` with your own assigned active staff account. Open Entrance and select the assigned event. Check its title and schedule before reading any ticket. Only granted event capabilities are available; staff cannot review payments unless separately authorized.
+2. Open the camera scanner and allow camera access in the approved secure local setup. If permission/focus fails, use the manual field. The scanner cleans up its camera when stopped or when leaving the screen. Do not install certificates, weaken browser security or expose localhost through a public tunnel.
+3. Ask the guest to open their private digital ticket. Scan it, or enter its private entry code and select **Validate ticket**. Validation alone does not admit the guest. Check the displayed event, holder and current eligibility. A picture is not proof of server validity.
+4. When required, compare ID under the approved procedure, then tick **I checked attendee identification**. Select **Confirm admission**. Wait for **Admission confirmed**. Only this saved server result counts as entry. The account gets private verified attendance; purchase alone does not create a Passport stamp.
+5. Select **Next guest**. **Already checked in** means do not admit again. Wrong-event, revoked, cancelled, suspended or ineligible tickets must be refused and escalated to the entrance manager. A second device or manual code cannot override a duplicate refusal.
+6. Guest list supports authorized search/filter/page and manual online validation. Manual entry uses the same server gates and ID acknowledgement. Never invent an offline admission or mark a ticket used in a spreadsheet/database as a workaround.
+7. If the network/server fails, stop admitting affected guests. Keep the line safe under the manager's procedure. Record the event, nonsecret booking/reference and approximate request time. Refresh saved history after reconnecting: an unanswered request may already have committed. Do not rescan blindly or promise that a timeout means failure. Check a known successful/unused test ticket before resuming under the manager's direction.
+8. Report uncertainty, duplicate disputes, suspicious QR or repeated failures through the manager/private support channel. Do not photograph ID or send QR credentials/guest lists in public. Staff permissions may be revoked immediately; sign in again only if an authorized manager has restored them. Sign out at shift end or on a shared device.
+
+The real entrance manager, support contact, ID policy and network contingency are **not yet appointed/approved**. [Physical test plan](PHYSICAL_SCANNER_TEST_PLAN.md) and [owner actions](OWNER_ACTION_REQUIRED.md) list the remaining acceptance. No real admission is authorized here.

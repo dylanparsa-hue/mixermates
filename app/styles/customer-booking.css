@@ -1,0 +1,457 @@
+.customer-shell {
+  min-height: 100svh;
+  background: var(--background);
+  color: var(--foreground);
+}
+.customer-header,
+.customer-main,
+.customer-footer {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+.customer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-block: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.customer-header .brand-logo {
+  width: 170px;
+}
+.customer-header nav {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.customer-main {
+  padding-block: 24px 64px;
+}
+.customer-main h1 {
+  font: 750 2.2rem/1.18 var(--font-body);
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  margin: 24px 0 16px;
+}
+.customer-main h2 {
+  font: 700 1.5rem/1.3 var(--font-body);
+  margin: 32px 0 16px;
+}
+.customer-main h3 {
+  font: 700 1.1rem/1.35 var(--font-body);
+}
+.customer-main p {
+  line-height: 1.65;
+  max-width: 72ch;
+  margin-block: 12px;
+}
+.customer-main a {
+  text-underline-offset: 4px;
+}
+.customer-main :where(input, select, textarea, button, a):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+.customer-test {
+  padding: 12px 16px;
+  background: var(--surface);
+  border-radius: 8px;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+.customer-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 310px;
+  gap: 48px;
+  margin-top: 28px;
+}
+.customer-columns > * {
+  min-width: 0;
+}
+.customer-cover {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.875;
+  object-fit: cover;
+  border-radius: 16px;
+}
+.customer-checkout-cover {
+  max-height: 220px;
+}
+.customer-cover-compact {
+  max-height: 96px;
+}
+.customer-event-details {
+  margin-block: 12px;
+}
+.customer-event-details summary {
+  cursor: pointer;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.customer-selected-summary {
+  padding-block: 8px;
+  border-block: 1px solid var(--border);
+}
+.review-requirements {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.customer-summary {
+  align-self: start;
+  position: sticky;
+  top: 24px;
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 24px;
+}
+.customer-summary h2 {
+  margin-top: 0;
+}
+.customer-summary dd {
+  margin: 6px 0 20px;
+  overflow-wrap: anywhere;
+}
+.customer-summary dt {
+  color: var(--muted-foreground);
+  font-size: 0.85rem;
+}
+.customer-total {
+  font-size: 2rem;
+}
+.customer-main label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-block: 20px;
+  font-weight: 600;
+}
+.customer-main
+  :where(input:not([type="radio"], [type="checkbox"]), select, textarea) {
+  min-width: 0;
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  background: var(--background);
+  color: var(--foreground);
+  font: 400 1rem/1.4 var(--font-body);
+}
+.customer-main textarea {
+  min-height: 120px;
+}
+.customer-main :where(input[type="radio"], input[type="checkbox"]) {
+  accent-color: var(--accent);
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+.customer-main .customer-tier,
+.customer-main .customer-choice {
+  flex-direction: row;
+  align-items: center;
+  min-height: 48px;
+  gap: 14px;
+  font-weight: 400;
+}
+.customer-tier {
+  padding: 20px;
+  background: var(--surface);
+  border-radius: 12px;
+}
+.customer-tier:has(input:checked) {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+.customer-tier span span,
+.customer-tier small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted-foreground);
+}
+.customer-main fieldset {
+  border: 0;
+  padding: 0;
+}
+.customer-main legend {
+  font-weight: 600;
+}
+.customer-steps {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 32px 0 24px;
+}
+.customer-steps button {
+  min-height: 46px;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--foreground);
+  font: 600 0.95rem var(--font-body);
+}
+.customer-steps [aria-current="step"] {
+  background: var(--foreground);
+  color: var(--background);
+}
+.customer-status {
+  padding-block: 8px;
+}
+.customer-status p {
+  margin: 6px 0;
+}
+.customer-payment {
+  margin-block: 28px;
+}
+.customer-payment-qr {
+  display: block;
+  width: min(100%, 280px);
+  height: auto;
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  margin-block: 20px;
+}
+.customer-auth {
+  width: min(100%, 480px);
+  margin: 32px auto 64px;
+}
+.customer-update {
+  padding-block: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.customer-update h3 {
+  margin-bottom: 4px;
+}
+.customer-timeline {
+  padding-left: 20px;
+}
+.customer-timeline li {
+  padding: 12px;
+}
+.customer-timeline span {
+  display: block;
+  color: var(--muted-foreground);
+  font-size: 0.85rem;
+  margin-top: 8px;
+}
+.customer-booking-list article {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 24px;
+  padding-block: 28px;
+  border-bottom: 1px solid var(--border);
+}
+.customer-booking-list img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.5;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.customer-booking-list h2 {
+  margin-top: 0;
+}
+.customer-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--border);
+  padding-block: 24px;
+  color: var(--muted-foreground);
+}
+.customer-main details {
+  margin-block: 24px;
+}
+.customer-main summary {
+  cursor: pointer;
+  min-height: 44px;
+  line-height: 44px;
+}
+.booking-review-entry {
+  padding-block: 24px;
+  border-top: 1px solid var(--border);
+}
+.booking-review-entry h4 {
+  font-size: 1.1rem;
+  margin-block: 12px;
+}
+.booking-review-entry .setup-actions {
+  flex-wrap: wrap;
+}
+.booking-review-entry dd {
+  overflow-wrap: anywhere;
+}
+.booking-review-entry img {
+  display: block;
+  width: min(100%, 280px);
+  height: auto;
+  margin: 16px 0;
+}
+.booking-review-entry label {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  margin: 16px 0;
+}
+.booking-review-entry label:has(input[type="checkbox"]) {
+  flex-direction: row;
+  align-items: center;
+  min-height: 44px;
+}
+.booking-review-entry :where(input:not([type="checkbox"]), textarea) {
+  min-height: 46px;
+  width: 100%;
+  min-width: 0;
+  font: 400 1rem var(--font-body);
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--foreground);
+}
+@media (max-width: 900px) {
+  .customer-columns {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .customer-summary {
+    position: static;
+  }
+  .customer-header,
+  .customer-main,
+  .customer-footer {
+    width: calc(100% - 32px);
+  }
+}
+@media (max-width: 560px) {
+  .customer-header {
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .customer-header .brand-logo {
+    width: 115px;
+  }
+  .customer-header nav {
+    gap: 8px;
+    font-size: 0.875rem;
+    justify-content: flex-end;
+  }
+  .customer-header nav button {
+    padding: 8px;
+    min-height: 44px;
+  }
+  .customer-main h1 {
+    font-size: 1.8rem;
+  }
+  .customer-main h2 {
+    font-size: 1.35rem;
+  }
+  .customer-booking-list article {
+    grid-template-columns: 1fr;
+  }
+  .customer-summary {
+    padding: 20px;
+  }
+  .customer-main .button {
+    min-height: 46px;
+    white-space: normal;
+  }
+  .customer-steps {
+    gap: 6px;
+  }
+  .customer-steps button {
+    padding-inline: 10px;
+    font-size: 0.875rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .customer-shell * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
+.customer-skip {
+  position: absolute;
+  z-index: 10000;
+  left: 16px;
+  top: 12px;
+  padding: 12px 16px;
+  background: var(--foreground);
+  color: var(--background);
+  transform: translateY(-200%);
+}
+.customer-skip:focus {
+  transform: translateY(0);
+}
+
+/* Quiet cinematic task surface; semantic colors support Light and Dark. */
+.simulated-checkout {
+  margin-block: 24px;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.simulated-checkout h2 {
+  margin-block: 16px 12px;
+}
+.simulated-checkout > p {
+  max-width: 65ch;
+}
+.simulator-summary {
+  display: grid;
+  grid-template-columns: minmax(64px, 1fr) minmax(0, 3fr);
+  gap: 12px 20px;
+  margin-block: 24px;
+  font-variant-numeric: tabular-nums;
+}
+.simulator-summary dt {
+  color: var(--muted-foreground);
+}
+.simulator-summary dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.simulated-checkout label {
+  display: grid;
+  gap: 8px;
+  margin-block: 24px 16px;
+}
+.simulated-checkout select {
+  width: 100%;
+  min-height: 48px;
+}
+.simulator-refund {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.simulator-refund summary {
+  min-height: 44px;
+  cursor: pointer;
+}
+@media (max-width: 767px) {
+  .simulated-checkout {
+    padding: 20px;
+  }
+  .simulated-checkout .button {
+    width: 100%;
+  }
+}
+
+.customer-ticket-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-block: 12px 24px;
+}

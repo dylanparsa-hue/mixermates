@@ -1,0 +1,8 @@
+allowBuilds:
+  '@prisma/client': true
+  '@prisma/engines': true
+  prisma: true
+  esbuild: true
+overrides:
+  '@prisma/config>effect': '3.20.0'
+  '@prisma/config>deepmerge-ts': '8.0.0'

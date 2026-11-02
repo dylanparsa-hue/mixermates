@@ -1,0 +1,25 @@
+# Local simulator boundaries
+
+The November 2 owner brief authorizes this local pre-Phase-2 correction only. It does not authorize production access, deployment, public uploads/tunnels, infrastructure changes, real billing/sales/admission, external messages or the new Phase 2 fee model.
+
+`MIXERMATES_PAYMENT_SIMULATOR=enabled` is an additional opt-in on top of the existing Test Lab policy. `simulatorEnvironment` requires the pinned development release scope, NODE_ENV=development, every Lab isolation flag, loopback APP_ORIGIN, an exact owned correction preview path and its exact `prisma/audit.db` URL. Existing DB_ and payment/messaging credentials are rejected, with additional gateway prefixes rejected by the simulator.
+
+Each simulator mutation checks the request origin/host/proxy guard, authenticated Lab controller and normal current actor. `assertSimulator` repeats marker validation in the serializable domain transaction: resolved workspace/database paths, nonce-bound disabled sentinel, six independent personas, fictional-only events/bookings/tickets/recipients and synthetic user email domains. Missing proof or any non-fictional row fails closed. Canonical, arbitrary SQLite, hosted and local SQL-provider databases are ineligible for simulation.
+
+The schema change is additive: Event.paymentMode defaults to ORGANIZER_QR, and SimulationAttempt stores append-only fictional provider outcomes with unique idempotency keys/references and a foreign key to Payment. SQLite/MySQL compatibility migrations are supplied. The source DB was not migrated. Old QR records retain their approved recipient snapshots and independent funds/evidence requirements.
+
+TEST_SIMULATOR drafts require the verified environment and have no recipient. Submission reruns the normal wizard/publication validation, then records an explicit LOCAL_SIMULATOR_EVENT_PUBLISHED audit. It grants no production organizer verification or billing entitlement and fabricates no independent admin review. The one customer account retains its organizer capability. Configured registration/BYOB/age/invitation gates remain in force.
+
+Reservation still uses the existing price calculation, inventory claims, reservation deadline, account and invitation validation. Simulator payment uses the persisted booking amount, a server-generated TEST reference and a serializable transaction. Payment/booking updates, provider receipt, issuance through issueEligibleTickets and notification/audit commit together. Unique attempt keys plus existing ticket sequence/token uniqueness prevent duplicate settlement/issuance. Decline and cancellation leave stock held for the normal reservation window so the customer can retry. Expiry/cancellation release it through the existing service.
+
+Eligibility only accepts simulator payment when event/booking/provider/test flags match and a persisted successful provider receipt exists. QR/manual recipient requirements are bypassed only by that trusted local provider branch. The legacy demo booking service cannot purchase simulator events. Issuance and actual admission reverify the disposable marker. The bounded scanner aggregate also recognizes provider receipts, so its counts match actual eligibility.
+
+The normal owned booking, My Tickets, digital QR, exports, private payload validation, check-in and attendance services remain authoritative. A declined, unpaid, refunded, revoked, used or foreign-owned ticket cannot yield valid admission. There is no decorative substitute QR.
+
+Refund requests use existing Refund records and refundEligibility. Only the simulator settles simulator funds: pending/failed outcomes do not claim settlement; success atomically records REFUND_CONFIRMED, REFUNDED ledger states, ticket revocation and one inventory release. Existing attendance/policy restrictions remain. Manual bank-transfer review refuses simulator funds; the refund list links back to the test booking. Manual QR refunds retain their independent process.
+
+Sample receipts are generated locally as synthetic private PNGs, submitted through the existing evidence service and cannot confirm funds. The advanced fixture retains separate finance/admin identities and audit records. No gateway/network request or real card/account data is used. Notifications are persisted in app; no external provider is configured.
+
+`Review tools → Add fresh TEST events` adds new fictional paid/free/multi-tier/registration/private/last-seat/sold-out/cancelled/manual scenarios and never resets prior records. The sold-out fixture owns its inventory with a real fictional reservation. Private scenarios create account-bound invitations. Existing Halloween and genuine-event restrictions remain intact.
+
+Evidence and limits: [owner report](PAYMENT_SIMULATOR_REPORT.md). The optimized production build was tested on localhost with simulator flags deliberately enabled: all 14 simulator/Test Lab requests returned 404 with no writes. SQL compatibility tests used newly initialized loopback-only services and were stopped afterward. No hosting or production system was accessed.

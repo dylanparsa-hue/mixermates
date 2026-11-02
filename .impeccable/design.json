@@ -1,0 +1,686 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-28T06:22:35.966375+00:00",
+  "title": "Design System: MixerMates",
+  "extensions": {
+    "colorMeta": {
+      "dark-background": {
+        "displayName": "Dark Background",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.00189 196.94)",
+          "oklch(26% 0.00189 196.94)",
+          "oklch(38% 0.00189 196.94)",
+          "oklch(49% 0.00189 196.94)",
+          "oklch(61% 0.00189 196.94)",
+          "oklch(72% 0.00189 196.94)",
+          "oklch(84% 0.00189 196.94)",
+          "oklch(95% 0.00189 196.94)"
+        ]
+      },
+      "dark-foreground": {
+        "displayName": "Dark Foreground",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.00000 89.88)",
+          "oklch(26% 0.00000 89.88)",
+          "oklch(38% 0.00000 89.88)",
+          "oklch(49% 0.00000 89.88)",
+          "oklch(61% 0.00000 89.88)",
+          "oklch(72% 0.00000 89.88)",
+          "oklch(84% 0.00000 89.88)",
+          "oklch(95% 0.00000 89.88)"
+        ]
+      },
+      "dark-surface": {
+        "displayName": "Dark Surface",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.00379 229.03)",
+          "oklch(26% 0.00379 229.03)",
+          "oklch(38% 0.00379 229.03)",
+          "oklch(49% 0.00379 229.03)",
+          "oklch(61% 0.00379 229.03)",
+          "oklch(72% 0.00379 229.03)",
+          "oklch(84% 0.00379 229.03)",
+          "oklch(95% 0.00379 229.03)"
+        ]
+      },
+      "dark-elevated": {
+        "displayName": "Dark Elevated",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.00488 219.68)",
+          "oklch(26% 0.00488 219.68)",
+          "oklch(38% 0.00488 219.68)",
+          "oklch(49% 0.00488 219.68)",
+          "oklch(61% 0.00488 219.68)",
+          "oklch(72% 0.00488 219.68)",
+          "oklch(84% 0.00488 219.68)",
+          "oklch(95% 0.00488 219.68)"
+        ]
+      },
+      "dark-border": {
+        "displayName": "Dark Border",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.00660 229.03)",
+          "oklch(26% 0.00660 229.03)",
+          "oklch(38% 0.00660 229.03)",
+          "oklch(49% 0.00660 229.03)",
+          "oklch(61% 0.00660 229.03)",
+          "oklch(72% 0.00660 229.03)",
+          "oklch(84% 0.00660 229.03)",
+          "oklch(95% 0.00660 229.03)"
+        ]
+      },
+      "dark-secondary": {
+        "displayName": "Dark Secondary",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.00669 255.49)",
+          "oklch(26% 0.00669 255.49)",
+          "oklch(38% 0.00669 255.49)",
+          "oklch(49% 0.00669 255.49)",
+          "oklch(61% 0.00669 255.49)",
+          "oklch(72% 0.00669 255.49)",
+          "oklch(84% 0.00669 255.49)",
+          "oklch(95% 0.00669 255.49)"
+        ]
+      },
+      "dark-accent": {
+        "displayName": "Dark Accent",
+        "role": "primary",
+        "tonalRamp": [
+          "oklch(15% 0.18392 17.96)",
+          "oklch(26% 0.18392 17.96)",
+          "oklch(38% 0.18392 17.96)",
+          "oklch(49% 0.18392 17.96)",
+          "oklch(61% 0.18392 17.96)",
+          "oklch(72% 0.18392 17.96)",
+          "oklch(84% 0.18392 17.96)",
+          "oklch(95% 0.18392 17.96)"
+        ]
+      },
+      "dark-focus": {
+        "displayName": "Dark Focus",
+        "role": "primary",
+        "tonalRamp": [
+          "oklch(15% 0.14964 37.99)",
+          "oklch(26% 0.14964 37.99)",
+          "oklch(38% 0.14964 37.99)",
+          "oklch(49% 0.14964 37.99)",
+          "oklch(61% 0.14964 37.99)",
+          "oklch(72% 0.14964 37.99)",
+          "oklch(84% 0.14964 37.99)",
+          "oklch(95% 0.14964 37.99)"
+        ]
+      },
+      "dark-selection": {
+        "displayName": "Dark Selection",
+        "role": "secondary",
+        "tonalRamp": [
+          "oklch(15% 0.10404 5.76)",
+          "oklch(26% 0.10404 5.76)",
+          "oklch(38% 0.10404 5.76)",
+          "oklch(49% 0.10404 5.76)",
+          "oklch(61% 0.10404 5.76)",
+          "oklch(72% 0.10404 5.76)",
+          "oklch(84% 0.10404 5.76)",
+          "oklch(95% 0.10404 5.76)"
+        ]
+      },
+      "light-background": {
+        "displayName": "Light Background",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.00286 84.56)",
+          "oklch(26% 0.00286 84.56)",
+          "oklch(38% 0.00286 84.56)",
+          "oklch(49% 0.00286 84.56)",
+          "oklch(61% 0.00286 84.56)",
+          "oklch(72% 0.00286 84.56)",
+          "oklch(84% 0.00286 84.56)",
+          "oklch(95% 0.00286 84.56)"
+        ]
+      },
+      "light-foreground": {
+        "displayName": "Light Foreground",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.00250 247.94)",
+          "oklch(26% 0.00250 247.94)",
+          "oklch(38% 0.00250 247.94)",
+          "oklch(49% 0.00250 247.94)",
+          "oklch(61% 0.00250 247.94)",
+          "oklch(72% 0.00250 247.94)",
+          "oklch(84% 0.00250 247.94)",
+          "oklch(95% 0.00250 247.94)"
+        ]
+      },
+      "light-surface": {
+        "displayName": "Light Surface",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.00288 84.56)",
+          "oklch(26% 0.00288 84.56)",
+          "oklch(38% 0.00288 84.56)",
+          "oklch(49% 0.00288 84.56)",
+          "oklch(61% 0.00288 84.56)",
+          "oklch(72% 0.00288 84.56)",
+          "oklch(84% 0.00288 84.56)",
+          "oklch(95% 0.00288 84.56)"
+        ]
+      },
+      "light-elevated": {
+        "displayName": "Light Elevated",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.00000 89.88)",
+          "oklch(26% 0.00000 89.88)",
+          "oklch(38% 0.00000 89.88)",
+          "oklch(49% 0.00000 89.88)",
+          "oklch(61% 0.00000 89.88)",
+          "oklch(72% 0.00000 89.88)",
+          "oklch(84% 0.00000 89.88)",
+          "oklch(95% 0.00000 89.88)"
+        ]
+      },
+      "light-border": {
+        "displayName": "Light Border",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.00295 84.56)",
+          "oklch(26% 0.00295 84.56)",
+          "oklch(38% 0.00295 84.56)",
+          "oklch(49% 0.00295 84.56)",
+          "oklch(61% 0.00295 84.56)",
+          "oklch(72% 0.00295 84.56)",
+          "oklch(84% 0.00295 84.56)",
+          "oklch(95% 0.00295 84.56)"
+        ]
+      },
+      "light-muted": {
+        "displayName": "Light Muted",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.00346 67.78)",
+          "oklch(26% 0.00346 67.78)",
+          "oklch(38% 0.00346 67.78)",
+          "oklch(49% 0.00346 67.78)",
+          "oklch(61% 0.00346 67.78)",
+          "oklch(72% 0.00346 67.78)",
+          "oklch(84% 0.00346 67.78)",
+          "oklch(95% 0.00346 67.78)"
+        ]
+      },
+      "light-secondary": {
+        "displayName": "Light Secondary",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.00339 264.53)",
+          "oklch(26% 0.00339 264.53)",
+          "oklch(38% 0.00339 264.53)",
+          "oklch(49% 0.00339 264.53)",
+          "oklch(61% 0.00339 264.53)",
+          "oklch(72% 0.00339 264.53)",
+          "oklch(84% 0.00339 264.53)",
+          "oklch(95% 0.00339 264.53)"
+        ]
+      },
+      "light-accent": {
+        "displayName": "Light Accent",
+        "role": "primary",
+        "tonalRamp": [
+          "oklch(15% 0.18745 18.21)",
+          "oklch(26% 0.18745 18.21)",
+          "oklch(38% 0.18745 18.21)",
+          "oklch(49% 0.18745 18.21)",
+          "oklch(61% 0.18745 18.21)",
+          "oklch(72% 0.18745 18.21)",
+          "oklch(84% 0.18745 18.21)",
+          "oklch(95% 0.18745 18.21)"
+        ]
+      },
+      "light-selection": {
+        "displayName": "Light Selection",
+        "role": "secondary",
+        "tonalRamp": [
+          "oklch(15% 0.03774 3.48)",
+          "oklch(26% 0.03774 3.48)",
+          "oklch(38% 0.03774 3.48)",
+          "oklch(49% 0.03774 3.48)",
+          "oklch(61% 0.03774 3.48)",
+          "oklch(72% 0.03774 3.48)",
+          "oklch(84% 0.03774 3.48)",
+          "oklch(95% 0.03774 3.48)"
+        ]
+      },
+      "campaign-red": {
+        "displayName": "Campaign Red",
+        "role": "secondary",
+        "tonalRamp": [
+          "oklch(15% 0.22987 24.57)",
+          "oklch(26% 0.22987 24.57)",
+          "oklch(38% 0.22987 24.57)",
+          "oklch(49% 0.22987 24.57)",
+          "oklch(61% 0.22987 24.57)",
+          "oklch(72% 0.22987 24.57)",
+          "oklch(84% 0.22987 24.57)",
+          "oklch(95% 0.22987 24.57)"
+        ]
+      },
+      "campaign-orange": {
+        "displayName": "Campaign Orange",
+        "role": "secondary",
+        "tonalRamp": [
+          "oklch(15% 0.19994 42.16)",
+          "oklch(26% 0.19994 42.16)",
+          "oklch(38% 0.19994 42.16)",
+          "oklch(49% 0.19994 42.16)",
+          "oklch(61% 0.19994 42.16)",
+          "oklch(72% 0.19994 42.16)",
+          "oklch(84% 0.19994 42.16)",
+          "oklch(95% 0.19994 42.16)"
+        ]
+      },
+      "campaign-magenta": {
+        "displayName": "Campaign Magenta",
+        "role": "secondary",
+        "tonalRamp": [
+          "oklch(15% 0.23546 10.44)",
+          "oklch(26% 0.23546 10.44)",
+          "oklch(38% 0.23546 10.44)",
+          "oklch(49% 0.23546 10.44)",
+          "oklch(61% 0.23546 10.44)",
+          "oklch(72% 0.23546 10.44)",
+          "oklch(84% 0.23546 10.44)",
+          "oklch(95% 0.23546 10.44)"
+        ]
+      },
+      "campaign-plum": {
+        "displayName": "Campaign Plum",
+        "role": "secondary",
+        "tonalRamp": [
+          "oklch(15% 0.05816 310.72)",
+          "oklch(26% 0.05816 310.72)",
+          "oklch(38% 0.05816 310.72)",
+          "oklch(49% 0.05816 310.72)",
+          "oklch(61% 0.05816 310.72)",
+          "oklch(72% 0.05816 310.72)",
+          "oklch(84% 0.05816 310.72)",
+          "oklch(95% 0.05816 310.72)"
+        ]
+      },
+      "action-start": {
+        "displayName": "Action Start",
+        "role": "primary",
+        "tonalRamp": [
+          "oklch(15% 0.20137 20.66)",
+          "oklch(26% 0.20137 20.66)",
+          "oklch(38% 0.20137 20.66)",
+          "oklch(49% 0.20137 20.66)",
+          "oklch(61% 0.20137 20.66)",
+          "oklch(72% 0.20137 20.66)",
+          "oklch(84% 0.20137 20.66)",
+          "oklch(95% 0.20137 20.66)"
+        ]
+      },
+      "action-end": {
+        "displayName": "Action End",
+        "role": "primary",
+        "tonalRamp": [
+          "oklch(15% 0.20411 10.06)",
+          "oklch(26% 0.20411 10.06)",
+          "oklch(38% 0.20411 10.06)",
+          "oklch(49% 0.20411 10.06)",
+          "oklch(61% 0.20411 10.06)",
+          "oklch(72% 0.20411 10.06)",
+          "oklch(84% 0.20411 10.06)",
+          "oklch(95% 0.20411 10.06)"
+        ]
+      },
+      "action-hover": {
+        "displayName": "Action Hover",
+        "role": "primary",
+        "tonalRamp": [
+          "oklch(15% 0.17859 16.33)",
+          "oklch(26% 0.17859 16.33)",
+          "oklch(38% 0.17859 16.33)",
+          "oklch(49% 0.17859 16.33)",
+          "oklch(61% 0.17859 16.33)",
+          "oklch(72% 0.17859 16.33)",
+          "oklch(84% 0.17859 16.33)",
+          "oklch(95% 0.17859 16.33)"
+        ]
+      },
+      "hero-cta-ink": {
+        "displayName": "Hero Cta Ink",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.00000 89.88)",
+          "oklch(26% 0.00000 89.88)",
+          "oklch(38% 0.00000 89.88)",
+          "oklch(49% 0.00000 89.88)",
+          "oklch(61% 0.00000 89.88)",
+          "oklch(72% 0.00000 89.88)",
+          "oklch(84% 0.00000 89.88)",
+          "oklch(95% 0.00000 89.88)"
+        ]
+      },
+      "hero-cta-hover": {
+        "displayName": "Hero Cta Hover",
+        "role": "secondary",
+        "tonalRamp": [
+          "oklch(15% 0.04980 30.37)",
+          "oklch(26% 0.04980 30.37)",
+          "oklch(38% 0.04980 30.37)",
+          "oklch(49% 0.04980 30.37)",
+          "oklch(61% 0.04980 30.37)",
+          "oklch(72% 0.04980 30.37)",
+          "oklch(84% 0.04980 30.37)",
+          "oklch(95% 0.04980 30.37)"
+        ]
+      },
+      "on-photo": {
+        "displayName": "On Photo",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.00000 89.88)",
+          "oklch(26% 0.00000 89.88)",
+          "oklch(38% 0.00000 89.88)",
+          "oklch(49% 0.00000 89.88)",
+          "oklch(61% 0.00000 89.88)",
+          "oklch(72% 0.00000 89.88)",
+          "oklch(84% 0.00000 89.88)",
+          "oklch(95% 0.00000 89.88)"
+        ]
+      },
+      "ticket-paper": {
+        "displayName": "Ticket Paper",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.00000 89.88)",
+          "oklch(26% 0.00000 89.88)",
+          "oklch(38% 0.00000 89.88)",
+          "oklch(49% 0.00000 89.88)",
+          "oklch(61% 0.00000 89.88)",
+          "oklch(72% 0.00000 89.88)",
+          "oklch(84% 0.00000 89.88)",
+          "oklch(95% 0.00000 89.88)"
+        ]
+      },
+      "ticket-ink": {
+        "displayName": "Ticket Ink",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.00817 274.49)",
+          "oklch(26% 0.00817 274.49)",
+          "oklch(38% 0.00817 274.49)",
+          "oklch(49% 0.00817 274.49)",
+          "oklch(61% 0.00817 274.49)",
+          "oklch(72% 0.00817 274.49)",
+          "oklch(84% 0.00817 274.49)",
+          "oklch(95% 0.00817 274.49)"
+        ]
+      },
+      "ticket-muted": {
+        "displayName": "Ticket Muted",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.01463 271.12)",
+          "oklch(26% 0.01463 271.12)",
+          "oklch(38% 0.01463 271.12)",
+          "oklch(49% 0.01463 271.12)",
+          "oklch(61% 0.01463 271.12)",
+          "oklch(72% 0.01463 271.12)",
+          "oklch(84% 0.01463 271.12)",
+          "oklch(95% 0.01463 271.12)"
+        ]
+      },
+      "ticket-line": {
+        "displayName": "Ticket Line",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.00539 286.29)",
+          "oklch(26% 0.00539 286.29)",
+          "oklch(38% 0.00539 286.29)",
+          "oklch(49% 0.00539 286.29)",
+          "oklch(61% 0.00539 286.29)",
+          "oklch(72% 0.00539 286.29)",
+          "oklch(84% 0.00539 286.29)",
+          "oklch(95% 0.00539 286.29)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "hero": {
+        "displayName": "Hero",
+        "purpose": "Centered expanded campaign headline."
+      },
+      "hero-phone": {
+        "displayName": "Hero Phone",
+        "purpose": "Phone hero ramp."
+      },
+      "editorial": {
+        "displayName": "Editorial",
+        "purpose": "Magenta creator editorial."
+      },
+      "row-heading": {
+        "displayName": "Row Heading",
+        "purpose": "Uppercase poster row hierarchy."
+      },
+      "detail-heading": {
+        "displayName": "Detail Heading",
+        "purpose": "Event detail title."
+      },
+      "task-heading": {
+        "displayName": "Task Heading",
+        "purpose": "Existing app page and operating headings."
+      },
+      "poster-title": {
+        "displayName": "Poster Title",
+        "purpose": "Actual event captions in Manrope."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Task copy and descriptions."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Standard action labels."
+      },
+      "footer-signature": {
+        "displayName": "Footer Signature",
+        "purpose": "Decorative closing campaign signature."
+      }
+    },
+    "shadows": [
+      {
+        "name": "hero-copy",
+        "value": "0 3px 24px #0002",
+        "purpose": "Local display legibility over layered art."
+      },
+      {
+        "name": "fan-tile",
+        "value": "0 8px 24px #0004",
+        "purpose": "Overlapping organizer campaign photographs."
+      },
+      {
+        "name": "phone-navigation",
+        "value": "0 6px 24px #0002",
+        "purpose": "Floating bottom navigation."
+      },
+      {
+        "name": "ticket-dialog",
+        "value": "0 24px 80px #0005",
+        "purpose": "Inherited private admission overlay."
+      }
+    ],
+    "motion": [
+      {
+        "name": "control-color",
+        "value": "200ms",
+        "purpose": "Background and color changes."
+      },
+      {
+        "name": "poster-hover",
+        "value": "transform 220ms ease-out",
+        "purpose": "Hover-capable poster image scale to 1.035."
+      },
+      {
+        "name": "hero-art",
+        "value": "650ms ease-out",
+        "purpose": "Single hero entrance, scale .96 to 1 and opacity .3 to 1."
+      },
+      {
+        "name": "hero-heading",
+        "value": "500ms 90ms ease-out",
+        "purpose": "Single hero copy entrance."
+      },
+      {
+        "name": "hero-support",
+        "value": "400ms 180ms ease-out",
+        "purpose": "Single hero sentence/CTA entrance."
+      },
+      {
+        "name": "collage-reveal",
+        "value": "500ms ease-out",
+        "purpose": "One-time observer-driven editorial/fan entrance."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrow-phone",
+        "value": "360px"
+      },
+      {
+        "name": "phone",
+        "value": "767px"
+      },
+      {
+        "name": "tablet",
+        "value": "1023px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "1199px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "description": "Existing action hierarchy; semantic gradient respects the resolved theme.",
+      "html": "<button class=\"ds-primary\">View event</button>",
+      "css": ".ds-primary{font-family:var(--font-body,Manrope),Arial,sans-serif;min-height:48px;padding:12px 20px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;transition:background-color 200ms,color 200ms;background:var(--action-gradient,linear-gradient(110deg,#c91e38,#c41250));color:#fff;border:0;}.ds-primary:hover{background:#aa1638;}.ds-primary:focus-visible{outline:2px solid var(--ring,#ff8b67);outline-offset:4px;}.ds-primary:active{transform:none;}",
+      "refersTo": "button-primary"
+    },
+    {
+      "name": "Hero action",
+      "kind": "button",
+      "description": "White discovery CTA over campaign art.",
+      "html": "<a class=\"ds-hero-action\" href=\"#events\">Discover events <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></a>",
+      "css": ".ds-hero-action{font-family:var(--font-body,Manrope),Arial,sans-serif;min-height:48px;padding:12px 20px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;transition:background-color 200ms,color 200ms;display:inline-flex;align-items:center;gap:14px;padding:12px 24px;background:#fff;color:#111;text-decoration:none;}.ds-hero-action:hover{background:#ffd4cc;}.ds-hero-action:focus-visible{outline:2px solid var(--ring,#ff8b67);outline-offset:4px;}",
+      "refersTo": "button-hero"
+    },
+    {
+      "name": "Secondary action",
+      "kind": "button",
+      "description": "Quiet secondary task action, live-bound to the active theme.",
+      "html": "<button class=\"ds-secondary\">Notification preferences</button>",
+      "css": ".ds-secondary{font-family:var(--font-body,Manrope),Arial,sans-serif;min-height:48px;padding:12px 20px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;transition:background-color 200ms,color 200ms;background:var(--surface-elevated,#1c1f20);color:var(--foreground,#fff);border:1px solid var(--border,#303436);}.ds-secondary:hover{background:var(--surface,#111314);}.ds-secondary:focus-visible{outline:2px solid var(--ring,#ff8b67);outline-offset:4px;}.ds-secondary:active{transform:none;}",
+      "refersTo": "button-secondary-dark"
+    },
+    {
+      "name": "Discovery search",
+      "kind": "input",
+      "description": "Compact semantic search field, 16px input and visible focus.",
+      "html": "<label class=\"ds-search\"><span class=\"ds-search-title\">Search events</span><input type=\"search\" aria-label=\"Search events\" placeholder=\"Search events\"/><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"m16 16 4 4\"/></svg></label>",
+      "css": ".ds-search{display:flex;align-items:center;gap:12px;padding:8px;min-height:60px;border:1px solid var(--border,#303436);border-radius:8px;background:var(--surface,#111314);color:var(--foreground,#fff);}.ds-search-title{position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden;}.ds-search input{font-family:var(--font-body,Manrope),sans-serif;flex:1;min-width:0;background:transparent;color:inherit;border:0;padding:12px;font-size:16px;}.ds-search input::placeholder{color:var(--muted-foreground,#a6a9ad);}.ds-search input:focus-visible{outline:2px solid var(--ring,#ff8b67);outline-offset:3px;}",
+      "refersTo": "search-dark"
+    },
+    {
+      "name": "Desktop navigation",
+      "kind": "nav",
+      "description": "Compact current-page underline; official brand is centered by the application header layout.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Example navigation\"><a href=\"#events\" aria-current=\"page\">Explore</a><a href=\"#tickets\">My tickets</a></nav>",
+      "css": ".ds-nav{display:flex;gap:12px;background:var(--surface-elevated,#1c1f20);padding:8px 16px;border-radius:10px;}.ds-nav a{font-family:var(--font-body,Manrope),sans-serif;display:inline-flex;align-items:center;min-height:44px;padding:8px 4px;border-radius:4px;font-size:12px;color:var(--foreground,#fff);text-decoration:none;}.ds-nav a[aria-current=\"page\"]{text-decoration:underline;text-underline-offset:6px;text-decoration-color:var(--primary,#ff6875);}.ds-nav a:hover{text-decoration:underline;}.ds-nav a:focus-visible{outline:2px solid var(--ring,#ff8b67);outline-offset:4px;}"
+    },
+    {
+      "name": "Photographic category chip",
+      "kind": "chip",
+      "description": "Photo slot is schematic in this isolated preview; the app uses existing configured category imagery.",
+      "html": "<div class=\"ds-chips\"><button class=\"ds-chip\" aria-pressed=\"false\"><span class=\"ds-photo\" aria-hidden=\"true\"></span>Music</button><button class=\"ds-chip\" aria-pressed=\"true\"><span class=\"ds-photo\" aria-hidden=\"true\"></span>All events</button></div>",
+      "css": ".ds-chips{display:flex;gap:14px;overflow-x:auto;padding:8px 4px;}.ds-chip{font-family:var(--font-body,Manrope),sans-serif;flex:none;display:flex;align-items:center;gap:12px;min-height:58px;padding:6px 18px 6px 7px;border:1px solid #ae4a70;border-radius:999px;background:var(--surface,#111314);color:var(--foreground,#fff);font-size:13px;cursor:pointer;}.ds-chip:nth-child(2n){border-color:#608e91;}.ds-chip:nth-child(3n){border-color:#9b954c;}.ds-chip:nth-child(4n){border-color:#ba694d;}.ds-photo{display:block;width:40px;height:40px;border-radius:50%;background:var(--surface-elevated,#1c1f20);}.ds-chip[aria-pressed=\"true\"]{background:var(--foreground,#fff);color:var(--background,#080909);border-color:var(--foreground,#fff);}.ds-chip:hover{border-color:var(--foreground,#fff);}.ds-chip:focus-visible{outline:2px solid var(--ring,#ff8b67);outline-offset:4px;}",
+      "refersTo": "chip-dark"
+    },
+    {
+      "name": "Poster card structure",
+      "kind": "card",
+      "description": "Schematic preview of 3:4 authorized artwork and below-image caption; real event data supplies the app.",
+      "html": "<article class=\"ds-poster\"><a class=\"ds-poster-link\" href=\"#event\"><div class=\"ds-art\"><span>Authorized event artwork</span></div><div class=\"ds-caption\"><p>Event date \u00b7 Location</p><h3>Authorized event title</h3><span>Actual price or availability</span></div></a></article>",
+      "css": ".ds-poster{width:260px;background:transparent;color:var(--foreground,#fff);font-family:var(--font-body,Manrope),sans-serif;}.ds-poster-link{display:block;color:inherit;text-decoration:none;}.ds-art{aspect-ratio:3/4;position:relative;border-radius:12px;overflow:hidden;background:var(--surface,#111314);display:grid;place-items:center;color:var(--muted-foreground,#a6a9ad);font-size:12px;}.ds-caption{padding:16px 0 4px;}.ds-caption p{font-size:12px;line-height:1.6;color:var(--muted-foreground,#a6a9ad);margin:0 0 7px;}.ds-caption h3{font-size:16px;font-weight:750;line-height:1.4;letter-spacing:-.015em;margin:0 0 8px;}.ds-caption>span{font-size:12px;}.ds-poster-link:hover h3{text-decoration:underline;text-underline-offset:4px;}.ds-poster-link:focus-visible{outline:2px solid var(--ring,#ff8b67);outline-offset:4px;}"
+    },
+    {
+      "name": "Admission paper",
+      "kind": "card",
+      "description": "Invariant white pass; preview deliberately excludes private QR data.",
+      "html": "<article class=\"ds-paper\"><h2>Event admission</h2><dl><dt>Ticket holder</dt><dd>Private ticket details</dd></dl><div class=\"ds-tear\"></div><p>Secure QR appears only in the authorized ticket flow.</p></article>",
+      "css": ".ds-paper{font-family:var(--font-body,Manrope),sans-serif;background:var(--ticket-paper,#fff);color:var(--ticket-ink,#141519);border-radius:24px;padding:24px;}.ds-paper h2{font-family:var(--font-campaign,Archivo),sans-serif;font-weight:850;font-size:23px;line-height:1.2;margin:0 0 24px;}.ds-paper dt,.ds-paper p{font-size:12px;color:var(--ticket-muted,#646770);}.ds-paper dd{font-size:14px;line-height:1.5;margin:4px 0 0;}.ds-tear{margin:24px -24px;border-top:1px dashed var(--ticket-line,#e0e0e4);}",
+      "refersTo": "admission-paper"
+    },
+    {
+      "name": "Footer signature",
+      "kind": "custom",
+      "description": "Owner-requested decorative campaign typography; original official logo remains separate.",
+      "html": "<div class=\"ds-signature\" aria-hidden=\"true\" translate=\"no\">MIXERMATES</div>",
+      "css": ".ds-signature{font:900 clamp(36px,12.2vw,190px)/1 var(--font-campaign,Archivo),sans-serif;font-variation-settings:\"wdth\" 100;letter-spacing:-.04em;text-align:center;color:#f22b65;background:linear-gradient(#681a35 0%,#ed145c 50%,#fa4436 100%);background-clip:text;-webkit-text-fill-color:transparent;white-space:nowrap;padding-block:12px;max-width:1440px;margin-inline:auto;}@media(max-width:767px){.ds-signature{font-size:11.4vw;}}"
+    },
+    {
+      "name": "Campaign materials",
+      "kind": "custom",
+      "description": "Source-exact hero, editorial, reminder and organizer gradient materials; not a substitute for shipped portrait and photo assets.",
+      "html": "<div class=\"ds-materials\"><div class=\"ds-disc\" aria-label=\"Warm hero disc\"></div><div class=\"ds-editorial\">Creator editorial</div><div class=\"ds-reminder\">Reminder campaign</div><div class=\"ds-organizer\">Organizer campaign</div></div>",
+      "css": ".ds-materials{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;font:700 13px/1.6 var(--font-body,Manrope),sans-serif;color:#fff;}.ds-materials>div{min-height:160px;display:grid;place-items:center;}.ds-disc{aspect-ratio:1;border-radius:50%;background:linear-gradient(125deg,#ff2557 8%,#f44327 35%,#ff861b 68%,#ffbc2d);}.ds-editorial{background:radial-gradient(ellipse at 36% 72%,#eb035c 0,#9b123d 24%,#080909 67%);color:#ffe7ef;}.ds-reminder{background:radial-gradient(ellipse at 50% 40%,#32203e,#111014 68%);border-radius:20px;color:#e4dce9;}.ds-organizer{background:radial-gradient(ellipse at 50% 30%,#7c3328,#261713 45%,#0e1010 80%);border-radius:20px;color:#f1dfd8;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Your Next Night",
+    "overview": "An energetic, photographic nightlife world combines near-black space, expanded white campaign headlines, warm circular portrait art and saturated editorial gradients. Actual event posters carry discovery; charcoal task surfaces keep booking, tickets, profiles and operating work readable. The official connected M symbol and original purple-to-pink logo remain supplied artwork.\n\nThe owner's October 28 video replacement brief supersedes the previous neutral catalogue direction. This document records the implemented local system, not owner visual acceptance. The normative application cascade ends in `app/styles/cinematic-app.css`, imported after the supporting styles by `app/globals.css`. Covered application and customer shells share these tokens; supporting routes retain their existing information architecture. Coming Soon presentation and guards remain unchanged.",
+    "keyCharacteristics": [
+      "Dramatic portrait/disc hero and expanded Archivo campaign typography.",
+      "Two photo-chip strips and native horizontal portrait-poster discovery.",
+      "Magenta organizer editorial, plum reminder, red fan campaign and gradient footer signature.",
+      "Manrope controls, charcoal task surfaces and intentional alternate light roles.",
+      "Actual authorized data and stable white, private admission paper."
+    ],
+    "rules": [
+      {
+        "name": "The Theme Role Rule",
+        "body": "Use live semantic variables for task surfaces and controls. Retain Light/Dark/System, stored preferences and the existing system-preference resolution; this redesign does not establish a new automatic dark default.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Use Archivo for campaign and major page hierarchy; use Manrope for controls, descriptions, poster captions and operational detail. Preserve original logos and event artwork rather than recreating their type.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "**Do** preserve official logo artwork, original assets and protected media.",
+      "**Do** use the expressive campaign language for discovery and quieter shared tokens for task work.",
+      "**Do** retain native scrolling, visible keyboard focus, reduced-motion behavior and phone safe-area spacing.",
+      "**Do** display actual authorized event data; clearly mark fictional local Lab content TEST.",
+      "**Do** keep admission QR white, private, static and scannable."
+    ],
+    "donts": [
+      "**Don't** restore the rejected lavender panels or obsolete catalogue-only direction.",
+      "**Don't** fabricate availability, price, verification, attendance, financial state or social proof.",
+      "**Don't** reinterpret event artwork as a named organizer portrait or expose private venue/profile data.",
+      "**Don't** change Coming Soon protections, stored theme preferences or backend authorization through visual work.",
+      "**Don't** treat local implementation, screenshots or this document as owner visual acceptance or production/release/sales authorization."
+    ]
+  }
+}

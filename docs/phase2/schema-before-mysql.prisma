@@ -1,0 +1,351 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+model User {
+ id String @id @default(cuid())
+ email String @unique
+ username String @unique
+ name String
+ passwordHash String
+ dob DateTime
+ city String
+ role String @default("ATTENDEE")
+ photo String @default("") @db.Text
+ cover String @default("/images/profile-cover.png") @db.Text
+ socialNotifications Boolean @default(true)
+ promotionalNotifications Boolean @default(false)
+ website String @default("") @db.Text
+ bio String @default("") @db.Text
+ instagram String @default("")
+ instagramPublic Boolean @default(false)
+ interests String @default("House,Electronic") @db.Text
+ attendancePublic Boolean @default(false)
+ discoverable Boolean @default(false)
+ achievementsPublic Boolean @default(false)
+ verification String @default("UNVERIFIED")
+ active Boolean @default(true)
+ createdAt DateTime @default(now())
+ sessions Session[]
+ events Event[]
+ bookings Booking[]
+ saved SavedEvent[]
+ notifications Notification[]
+ staff EventStaff[]
+ attendance AttendanceRecord[]
+ badges UserBadge[]
+ verificationRequests OrganizerVerification[]
+ reports Report[]
+ audits AdminAuditLog[]
+ resetTokens PasswordReset[]
+ uploads FileUpload[]
+ payouts Payout[]
+ clubs ClubMembership[]
+}
+model Session {
+ id String @id
+ userId String
+ user User @relation(fields:[userId],references:[id],onDelete:Cascade)
+ expires DateTime
+ @@index([userId])
+}
+model PasswordReset {
+ id String @id
+ userId String
+ user User @relation(fields:[userId],references:[id],onDelete:Cascade)
+ expires DateTime
+}
+model Event {
+ id String @id @default(cuid())
+ slug String @unique
+ title String
+ description String @db.Text
+ category String
+ genre String
+ atmosphere String @default("Electric")
+ image String @db.Text
+ city String
+ venue String @db.Text
+ privateVenue String @default("") @db.Text
+ latitude Float
+ longitude Float
+ startsAt DateTime
+ endsAt DateTime
+ age Int @default(18)
+ capacity Int @default(100)
+ access String @default("PUBLIC")
+ approvalRequired Boolean @default(false)
+ status String @default("PUBLISHED")
+ salesPaused Boolean @default(false)
+ theme String @default("Electric")
+ policies String @default("Government-issued photo ID required. No prohibited items. Tickets are non-transferable. Contact the organizer for demo refunds.") @db.Text
+ organizerId String
+ organizer User @relation(fields:[organizerId],references:[id])
+ createdAt DateTime @default(now())
+ tiers EventTicketTier[]
+ fields EventRegistrationField[]
+ bookings Booking[]
+ saved SavedEvent[]
+ staff EventStaff[]
+ attendance AttendanceRecord[]
+ promotions EventPromotion[]
+ activity EventActivity[]
+ @@index([city,status,startsAt])
+}
+model EventTicketTier {
+ id String @id @default(cuid())
+ eventId String
+ event Event @relation(fields:[eventId],references:[id],onDelete:Cascade)
+ name String
+ description String @default("") @db.Text
+ price Int
+ quantity Int
+ sold Int @default(0)
+ maxPerOrder Int @default(4)
+ saleStart DateTime?
+ saleEnd DateTime?
+ bookings Booking[]
+}
+model EventRegistrationField {
+ id String @id @default(cuid())
+ eventId String
+ event Event @relation(fields:[eventId],references:[id],onDelete:Cascade)
+ label String @db.Text
+ type String @default("text")
+ required Boolean @default(false)
+ options String @default("") @db.Text
+}
+model Booking {
+ id String @id @default(cuid())
+ userId String
+ user User @relation(fields:[userId],references:[id])
+ eventId String
+ event Event @relation(fields:[eventId],references:[id])
+ tierId String
+ tier EventTicketTier @relation(fields:[tierId],references:[id])
+ quantity Int @default(1)
+ total Int
+ status String @default("PENDING_REVIEW")
+ paymentStatus String @default("SUCCEEDED")
+ answers String @default("{}") @db.Text
+ receiptPath String?
+ attendancePublic Boolean @default(false)
+ idempotencyKey String @unique
+ createdAt DateTime @default(now())
+ tickets Ticket[]
+ payment Payment?
+ @@index([userId,eventId])
+ @@index([eventId,status])
+}
+model Ticket {
+ id String @id @default(cuid())
+ token String @unique
+ bookingId String
+ booking Booking @relation(fields:[bookingId],references:[id])
+ status String @default("ACTIVE")
+ createdAt DateTime @default(now())
+ checkIn TicketCheckIn?
+ attendance AttendanceRecord?
+}
+model TicketCheckIn {
+ id String @id @default(cuid())
+ ticketId String @unique
+ ticket Ticket @relation(fields:[ticketId],references:[id])
+ staffId String
+ createdAt DateTime @default(now())
+}
+model AttendanceRecord {
+ id String @id @default(cuid())
+ userId String
+ user User @relation(fields:[userId],references:[id])
+ eventId String
+ event Event @relation(fields:[eventId],references:[id])
+ ticketId String @unique
+ ticket Ticket @relation(fields:[ticketId],references:[id])
+ public Boolean @default(false)
+ createdAt DateTime @default(now())
+ @@unique([userId,eventId])
+}
+model Payment {
+ id String @id @default(cuid())
+ bookingId String @unique
+ booking Booking @relation(fields:[bookingId],references:[id])
+ amount Int
+ fee Int
+ status String @default("SUCCEEDED")
+ provider String @default("DEMO_TOUCH_N_GO")
+ createdAt DateTime @default(now())
+ refunds Refund[]
+ payoutId String?
+ payout Payout? @relation(fields:[payoutId],references:[id])
+}
+model Refund {
+ id String @id @default(cuid())
+ paymentId String
+ payment Payment @relation(fields:[paymentId],references:[id])
+ amount Int
+ createdAt DateTime @default(now())
+}
+model Payout {
+ id String @id @default(cuid())
+ organizerId String
+ organizer User @relation(fields:[organizerId],references:[id])
+ payments Payment[]
+ amount Int
+ status String @default("PENDING")
+ createdAt DateTime @default(now())
+}
+model SavedEvent {
+ userId String
+ user User @relation(fields:[userId],references:[id],onDelete:Cascade)
+ eventId String
+ event Event @relation(fields:[eventId],references:[id],onDelete:Cascade)
+ @@id([userId,eventId])
+}
+model Notification {
+ id String @id @default(cuid())
+ userId String
+ user User @relation(fields:[userId],references:[id],onDelete:Cascade)
+ title String
+ body String @db.Text
+ link String @default("/tickets") @db.Text
+ read Boolean @default(false)
+ createdAt DateTime @default(now())
+ @@index([userId,read])
+}
+model EventStaff {
+ eventId String
+ event Event @relation(fields:[eventId],references:[id],onDelete:Cascade)
+ userId String
+ user User @relation(fields:[userId],references:[id],onDelete:Cascade)
+ @@id([eventId,userId])
+}
+model Follow {
+ id String @id @default(cuid())
+ fromId String
+ toId String
+ @@unique([fromId,toId])
+}
+model FriendRequest {
+ id String @id @default(cuid())
+ fromId String
+ toId String
+ status String @default("PENDING")
+ createdAt DateTime @default(now())
+ @@unique([fromId,toId])
+}
+model Friendship {
+ id String @id @default(cuid())
+ userA String
+ userB String
+ @@unique([userA,userB])
+}
+model Conversation {
+ id String @id @default(cuid())
+ userA String
+ userB String
+ messages Message[]
+ @@unique([userA,userB])
+}
+model Message {
+ id String @id @default(cuid())
+ conversationId String
+ conversation Conversation @relation(fields:[conversationId],references:[id],onDelete:Cascade)
+ senderId String
+ text String @db.Text
+ createdAt DateTime @default(now())
+}
+model Block {
+ id String @id @default(cuid())
+ fromId String
+ toId String
+ @@unique([fromId,toId])
+}
+model OrganizerVerification {
+ id String @id @default(cuid())
+ userId String
+ user User @relation(fields:[userId],references:[id])
+ note String @db.Text
+ status String @default("PENDING_REVIEW")
+ createdAt DateTime @default(now())
+}
+model EventPromotion {
+ id String @id @default(cuid())
+ eventId String
+ event Event @relation(fields:[eventId],references:[id])
+ package String
+ amount Int
+ status String @default("PENDING")
+ createdAt DateTime @default(now())
+}
+model EventActivity {
+ id String @id @default(cuid())
+ eventId String
+ event Event @relation(fields:[eventId],references:[id])
+ kind String
+ createdAt DateTime @default(now())
+ @@index([eventId,kind])
+}
+model EventBadge {
+ id String @id @default(cuid())
+ name String @unique
+ threshold Int
+ users UserBadge[]
+}
+model UserBadge {
+ userId String
+ user User @relation(fields:[userId],references:[id])
+ badgeId String
+ badge EventBadge @relation(fields:[badgeId],references:[id])
+ @@id([userId,badgeId])
+}
+model Report {
+ id String @id @default(cuid())
+ userId String
+ user User @relation(fields:[userId],references:[id])
+ targetId String
+ reason String @db.Text
+ status String @default("OPEN")
+ createdAt DateTime @default(now())
+}
+model AdminAuditLog {
+ id String @id @default(cuid())
+ userId String
+ user User @relation(fields:[userId],references:[id])
+ action String
+ targetId String
+ createdAt DateTime @default(now())
+}
+
+model FileUpload {
+ id String @id @default(cuid())
+ path String @unique
+ data Bytes? @db.LongBlob
+ mime String?
+ userId String
+ user User @relation(fields:[userId],references:[id],onDelete:Cascade)
+ private Boolean @default(true)
+ createdAt DateTime @default(now())
+}
+
+model Club {
+ id String @id @default(cuid())
+ name String @unique
+ description String @db.Text
+ color String
+ symbol String
+ age Int @default(18)
+ members ClubMembership[]
+}
+model ClubMembership {
+ userId String
+ user User @relation(fields:[userId],references:[id],onDelete:Cascade)
+ clubId String
+ club Club @relation(fields:[clubId],references:[id],onDelete:Cascade)
+ public Boolean @default(false)
+ createdAt DateTime @default(now())
+ @@id([userId,clubId])
+}
